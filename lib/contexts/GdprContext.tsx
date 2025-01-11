@@ -23,7 +23,7 @@ const GdprContext = createContext<null | T_GdprContextValue>(null);
 export const useGdprContext = (): T_GdprContextValue => {
   const context = useContext(GdprContext);
   if (!context) {
-    throw new Error("useMyContext must be used within a MyProvider");
+    throw new Error("useGdprContext must be used within a GdprContextProvider");
   }
   return context;
 };

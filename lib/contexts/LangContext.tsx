@@ -1,10 +1,6 @@
 "use client";
 import React, { createContext, useContext, useState, useMemo, FC, ReactNode } from "react";
-
-export enum E_LANG {
-  RO = "ro",
-  EN = "en",
-}
+import { E_LANG } from "../localization";
 
 export type T_LangContextValue = {
   langState: E_LANG;
@@ -20,7 +16,7 @@ const LangContext = createContext<null | T_LangContextValue>(null);
 export const useLangContext = (): T_LangContextValue => {
   const context = useContext(LangContext);
   if (!context) {
-    throw new Error("useMyContext must be used within a MyProvider");
+    throw new Error("useLangContext must be used within a LangContextProvider");
   }
   return context;
 };

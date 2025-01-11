@@ -1,26 +1,10 @@
 "use client";
 
-import { useGdprContext } from "@/lib/contexts/GdprContext";
-import { useLangContext } from "@/lib/contexts/LangContext";
-import useFetcher from "@/lib/hooks/useData";
-import { Project } from "@/lib/queries/projects";
+import { T_CompleteProject } from "@/lib/queries/types";
 import React, { FC } from "react";
 
-const HomeView: FC<{ items: Project[] }> = ({ items }) => {
-  const { data, error } = useFetcher(items);
-
-  const { langState } = useLangContext();
-  const { gdprState } = useGdprContext();
-
-  console.log(data);
-
-  return (
-    <div>
-      <button className="btn" onClick={() => console.log(data)}>
-        See data
-      </button>
-    </div>
-  );
+const HomeView: FC<{ items: T_CompleteProject[] }> = ({ items }) => {
+  return <div></div>;
 };
 
 export default HomeView;
