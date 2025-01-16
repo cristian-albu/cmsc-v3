@@ -10,16 +10,20 @@ export enum E_COLLECTIONS {
 
 export function buildQueryFromDefault<T extends object>(defaultFullItem: T): string {
   return Object.entries(defaultFullItem).reduce((accum, [key, val]) => {
-    if (val && typeof val === "object" && !Array.isArray(val)) {
+    if (Array.isArray(val)) {
+      return `${accum}\n${key}[]`;
+    }
+
+    if (val && typeof val === "object") {
+      if ("json" in val) {
+        return `${accum}\n${key} \n${RICH_TEXT_QUERY}\n`;
+      }
       const nestedFields = buildQueryFromDefault(val);
+
       if (nestedFields.trim() === "") {
         return accum;
       }
       return `${accum}\n${key} {\n${nestedFields}\n}`;
-    }
-
-    if (Array.isArray(val)) {
-      return `${accum}\n${key}[]`;
     }
 
     return `${accum}\n${key}`;
@@ -55,3 +59,29 @@ export function enDataListConverter<T extends Record<string, any>>(data: T_EnLoc
     return enDataConverter(item);
   });
 }
+
+export const RICH_TEXT = {
+  json: {} as Document,
+  links: { assets: { block: [{ sys: { id: "" }, description: "", url: "" }] } },
+};
+
+export const RICH_TEXT_QUERY = `
+{
+  json
+  links {
+    assets {
+      block {
+        sys {
+          id
+        }
+        url
+        title
+        description
+        width
+        height
+        fileName
+      }
+    }
+  }
+}
+`;

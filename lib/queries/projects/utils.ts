@@ -19,7 +19,7 @@ export const baseProject = {
 
 export const extendedProject = {
   ...baseProject,
-  content: { json: {} as Document },
+  [E_LOCALIZED_PROJECT_FIELDS.CONTENT]: { json: {} as Document },
 };
 
 const localizedFields = {

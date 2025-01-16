@@ -1,4 +1,5 @@
 "use client";
+import Markdown from "@/components/layout/rich-text";
 import { T_BaseLocalizedEvents, T_ExtendedLocalizedEvents } from "@/lib/queries/events/utils";
 import { E_COLLECTIONS } from "@/lib/queries/utils";
 import React, { FC } from "react";
@@ -6,7 +7,11 @@ import React, { FC } from "react";
 const DynamicEventView: FC<T_EventsView> = ({ currEvent, relatedEvents }) => {
   console.log(currEvent, relatedEvents);
 
-  return <div>DynamicEvent</div>;
+  return (
+    <div>
+      <Markdown content={currEvent.content} />
+    </div>
+  );
 };
 
 export default DynamicEventView;

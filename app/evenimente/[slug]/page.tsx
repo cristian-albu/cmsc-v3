@@ -2,8 +2,10 @@ import DynamicEventView, { T_EventData, T_EventsData, T_EventsSlugData } from "@
 import client from "@/lib/client";
 import { GET_EVENT_BY_SLUG, GET_EVENTS_SLUGS } from "@/lib/queries";
 import { GET_RELATED_EVENTS } from "@/lib/queries/events";
-import { E_COLLECTIONS } from "@/lib/queries/utils";
+import { extendedLocalizedEvents } from "@/lib/queries/events/utils";
+import { buildQueryFromDefault, E_COLLECTIONS } from "@/lib/queries/utils";
 import { T_Params } from "@/lib/types";
+import { gql } from "graphql-request";
 import { notFound } from "next/navigation";
 import React from "react";
 
