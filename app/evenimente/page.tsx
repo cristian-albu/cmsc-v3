@@ -1,9 +1,9 @@
-import EventsView from "@/components/views/events";
+import EventsView from "@/app/evenimente/views";
 import client from "@/lib/client";
-import { GET_EVENTS_LIST } from "@/lib/queries";
-import { T_BaseLocalizedEvents } from "@/lib/queries/events/utils";
-import { E_COLLECTIONS } from "@/lib/queries/utils";
+import { E_COLLECTIONS } from "@/lib/utils";
 import React from "react";
+import { T_BaseLocalizedEvents } from "./[slug]/queries/utils";
+import { GET_EVENTS_LIST } from "./[slug]/queries";
 
 type T_EventsData = {
   [E_COLLECTIONS.EVENTS]: { items: T_BaseLocalizedEvents[] };

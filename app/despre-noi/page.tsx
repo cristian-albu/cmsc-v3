@@ -1,15 +1,14 @@
-import AboutView from "@/components/views/about";
 import client from "@/lib/client";
-import { GET_PARTNERS_LIST, GET_TEAM_MEMBER_LIST } from "@/lib/queries";
-import { T_BasePartner } from "@/lib/queries/partners/utils";
-import { T_BaseLocalizedTeamMember } from "@/lib/queries/team/utils";
-import { E_COLLECTIONS } from "@/lib/queries/utils";
+import { E_COLLECTIONS } from "@/lib/utils";
 import React from "react";
+import AboutView from "./views";
+import { GET_PARTNERS_LIST, GET_TEAM_MEMBER_LIST, T_BaseLocalizedTeamMember, T_BasePartner } from "./data/queries";
 
-type T_TeamData = {
+export type T_TeamData = {
   [E_COLLECTIONS.TEAM_MEMBERS]: { items: T_BaseLocalizedTeamMember[] };
 };
-type T_PartnersData = {
+
+export type T_PartnersData = {
   [E_COLLECTIONS.TEAM_MEMBERS]: { items: T_BasePartner[] };
 };
 

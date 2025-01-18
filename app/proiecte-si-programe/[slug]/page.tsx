@@ -1,6 +1,6 @@
 import client from "@/lib/client";
-import { GET_PROJECT_BY_SLUG, GET_PROJECTS_SLUGS } from "@/lib/queries/projects";
-import { T_BaseProject } from "@/lib/queries/projects/utils";
+import { GET_PROJECT_BY_SLUG, GET_PROJECTS_SLUGS } from "@/app/proiecte-si-programe/data/queries";
+import { T_BaseProject } from "@/app/proiecte-si-programe/data/queries/utils";
 
 import { notFound } from "next/navigation";
 import React from "react";
