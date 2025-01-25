@@ -10,3 +10,12 @@ const client = new GraphQLClient(
 );
 
 export default client;
+
+export const testClient = new GraphQLClient(
+  `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTETFUL_TEST_ENVIRONMENT}`,
+  {
+    headers: {
+      Authorization: `Bearer ${process.env.CONTENTFUL_TEST_ACCESS_TOKEN}`,
+    },
+  }
+);

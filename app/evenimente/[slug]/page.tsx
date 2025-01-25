@@ -1,11 +1,11 @@
-import DynamicEventView, { T_EventData, T_EventsData, T_EventsSlugData } from "@/components/views/events/DynamicEvent";
+import DynamicEventView, { T_EventData, T_EventsData, T_EventsSlugData } from "@/app/evenimente/views/DynamicEvent";
 import client from "@/lib/client";
-import { GET_EVENT_BY_SLUG, GET_EVENTS_SLUGS } from "@/lib/queries";
-import { GET_RELATED_EVENTS } from "@/lib/queries/events";
-import { E_COLLECTIONS } from "@/lib/queries/utils";
+
+import { E_COLLECTIONS } from "@/lib/utils";
 import { T_Params } from "@/lib/types";
 import { notFound } from "next/navigation";
 import React from "react";
+import { GET_EVENT_BY_SLUG, GET_EVENTS_SLUGS, GET_RELATED_EVENTS } from "./queries";
 
 export async function generateStaticParams() {
   const events = await client.request<T_EventsSlugData>(GET_EVENTS_SLUGS);
