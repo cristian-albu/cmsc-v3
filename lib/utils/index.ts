@@ -1,5 +1,5 @@
 import { buildQueryFromDefault } from "./buildQueryFromDefault";
-import { enDataConverter, enDataListConverter } from "./enDataConverter";
+import { enDataConverter, enDataListConverter } from "../localization/enDataConverter";
 
 export enum E_COLLECTIONS {
   PARTNERS = "partnersCollection",

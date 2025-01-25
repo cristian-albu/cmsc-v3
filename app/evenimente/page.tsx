@@ -5,16 +5,16 @@ import React from "react";
 import { T_BaseLocalizedEvents } from "./[slug]/queries/utils";
 import { GET_EVENTS_LIST } from "./[slug]/queries";
 
-type T_EventsData = {
+export type T_EventsRequest = {
   [E_COLLECTIONS.EVENTS]: { items: T_BaseLocalizedEvents[] };
 };
 
 export type T_EventsView = {
-  eventsData: T_EventsData;
+  eventsData: T_EventsRequest;
 };
 
 export default async function Page() {
-  const events = await client.request<T_EventsData>(GET_EVENTS_LIST);
+  const events = await client.request<T_EventsRequest>(GET_EVENTS_LIST);
 
   return <EventsView eventsData={events} />;
 }

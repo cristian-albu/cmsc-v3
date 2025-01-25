@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Crimson_Text } from "next/font/google";
 import "./globals.css";
 import { LangContextProvider } from "@/lib/contexts/LangContext";
 import { GdprContextProvider } from "@/lib/contexts/GdprContext";
-
 import { WindowContextProvider } from "@/lib/contexts/WindowContext";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const crimsonText = Crimson_Text({ variable: "--font-crimsonText", subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${crimsonText.variable} antialiased pt-[60px]`}>
         <WindowContextProvider>
           <GdprContextProvider>
             <LangContextProvider>

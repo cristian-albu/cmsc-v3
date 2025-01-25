@@ -1,9 +1,14 @@
 import { E_LANG } from "@/lib/localization";
 import { E_PATHS } from "@/lib/paths";
 
-export const home_heroData: T_StaticData = {
+export const home_heroData = {
   meta: {
-    images: [""],
+    images: [
+      "/cmsc_hero/hero_img_1.webp",
+      "/cmsc_hero/hero_img_2.webp",
+      "/cmsc_hero/hero_img_3.webp",
+      "/cmsc_hero/hero_img_4.webp",
+    ],
     buttonLink: E_PATHS.CONTACT,
   },
   [E_LANG.RO]: {
@@ -20,7 +25,7 @@ export const home_heroData: T_StaticData = {
   },
 };
 
-export const home_eventsData: T_StaticData = {
+export const home_eventsData = {
   meta: { buttonLink: E_PATHS.EVENTS },
   [E_LANG.RO]: {
     heading: "Evenimente",
@@ -32,12 +37,12 @@ export const home_eventsData: T_StaticData = {
   },
 };
 
-export const home_partnersData: T_StaticData = {
+export const home_partnersData = {
   [E_LANG.RO]: { heading: "Parteneri" },
   [E_LANG.EN]: { heading: "Partners" },
 };
 
-export const home_projectsData: T_StaticData = {
+export const home_projectsData = {
   meta: { buttonLink: E_PATHS.PROJECTS },
   [E_LANG.RO]: {
     heading: "Proiecte şi programe",
@@ -67,7 +72,7 @@ export const home_projectsData: T_StaticData = {
   },
 };
 
-export const home_resourcesData: T_StaticData = {
+export const home_resourcesData = {
   meta: { buttonLink: E_PATHS.RESOURCES },
   [E_LANG.RO]: {
     heading: "Resurse",
@@ -83,18 +88,18 @@ export const home_resourcesData: T_StaticData = {
   },
 };
 
-export const home_teamData: T_StaticData = {
+export const home_teamData = {
   [E_LANG.RO]: { heading: "Echipa noastră" },
   [E_LANG.EN]: { heading: "Our Team" },
 };
 
-export const home_councilData: T_StaticData = {
+export const home_councilData = {
   meta: { buttonLink: E_PATHS.ABOUT },
   [E_LANG.RO]: { heading: "Consiliul director", button: "Vezi mai multe despre noi" },
   [E_LANG.EN]: { heading: "Board of Directors", button: "Learn more about us" },
 };
 
-export const home_donationData: T_StaticData = {
+export const home_donationData = {
   meta: { buttonLink: E_PATHS.REDIRECT },
   [E_LANG.RO]: {
     heading:
@@ -139,7 +144,7 @@ export const home_donationData: T_StaticData = {
   },
 };
 
-export const home_ctaData: T_StaticData = {
+export const home_ctaData = {
   meta: { buttonLink: E_PATHS.CONTACT },
   [E_LANG.RO]: {
     heading: "Apel la acţiune",

@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { FC } from "react";
 
-const Footer = () => {
+const Footer: FC = () => {
   return <div>Footer</div>;
 };
 

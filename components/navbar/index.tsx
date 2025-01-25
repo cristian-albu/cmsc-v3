@@ -1,14 +1,15 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { navbarData } from "./data";
 import Link from "next/link";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import { useWindowContext } from "@/lib/contexts/WindowContext";
 import { E_LANG } from "@/lib/localization";
+import Image from "next/image";
 
 const RESPONSIVE_BREAKPOINT = 960;
 
-const Navbar = () => {
+const Navbar: FC = () => {
   const [homeData, ...navData] = navbarData;
   const navRef = useRef<null | HTMLElement>(null);
   const { langState, updateLangState } = useLangContext();
@@ -35,9 +36,11 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="bg-black min-h-[60px] flex text-white w-full fixed top-0 left-0 z-[99] justify-between items-center"
+      className="bg-black max-w-[100vw] min-h-[60px] flex text-white w-full fixed top-0 left-0 z-[99] justify-between items-center"
     >
-      <Link href={homeData.link}>{homeData[langState]}</Link>
+      <Link href={homeData.link}>
+        <Image width={180} height={60} src={"/cmsc_logo_white.svg"} alt={homeData[langState]} className="pl-2" />
+      </Link>
       <ul
         className={
           isMobileWidth

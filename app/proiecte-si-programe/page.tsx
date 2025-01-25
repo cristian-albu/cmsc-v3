@@ -4,7 +4,7 @@ import ProjectsView from "@/app/proiecte-si-programe/views";
 import { GET_PROJECTS_LIST } from "@/app/proiecte-si-programe/data/queries";
 import { T_BaseLocalizedProject } from "@/app/proiecte-si-programe/data/queries/utils";
 
-type T_ProjectsRequest = {
+export type T_ProjectsRequest = {
   projectsProgramsCollection: { items: T_BaseLocalizedProject[] };
 };
 
