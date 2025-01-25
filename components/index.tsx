@@ -7,5 +7,6 @@ import Section from "./section";
 import Typography from "./typography";
 import Wrapper from "./wrapper";
 import Line from "./line";
+import Tooltip from "./tooltip";
 
-export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line };
+export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip };

@@ -1,7 +1,7 @@
 import { FC, JSX, ReactNode } from "react";
 
 type T_WaveType = "bottom" | "top" | "bottomDark";
-type T_Bg = "color" | "light" | "dark";
+type T_Bg = "color" | "light" | "dark" | "gray";
 type T_Section = {
   children: ReactNode;
   wave?: T_WaveType;
@@ -12,6 +12,7 @@ const colorClasses: Record<T_Bg, string> = {
   color: "bg-gradient-to-tr from-darkPurple to-pink text-[#ffffff]",
   dark: "bg-[#1e1527] text-[#ffffff]",
   light: "bg-[#ffffff] text-dark",
+  gray: "bg-[#f7f7f7] text-dark",
 };
 
 const waveClasses: Record<T_WaveType, string> = {
@@ -25,9 +26,11 @@ export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }
 
   return (
     <section
-      className={`relative max-w-full flex flex-col px-10 justify-between items-center w-full overflow-hidden ${
-        bg === "color" ? colorClasses.color : ""
-      }${bg === "dark" ? colorClasses.dark : ""}${bg === "light" ? colorClasses.light : ""} ${className || ""}`}
+      className={`relative max-w-full flex flex-col px-10 justify-between items-center w-full overflow-hidden 
+        ${bg === "color" ? colorClasses.color : ""}
+        ${bg === "dark" ? colorClasses.dark : ""}
+        ${bg === "light" ? colorClasses.light : ""}
+        ${bg === "gray" ? colorClasses.gray : ""} ${className || ""}`}
       {...attributes}
     >
       <div></div>

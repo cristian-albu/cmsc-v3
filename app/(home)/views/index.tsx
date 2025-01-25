@@ -6,6 +6,8 @@ import { T_HomeData } from "../data/queries/getHomeData";
 import HeroSection from "./HeroSection";
 import EventsSection from "./EventsSection";
 import PartnersSection from "./PartnersSection";
+import ProjectsSection from "./ProjectsSection";
+import ResourcesSection from "./ResourcesSection";
 
 const HomeView: FC<{ data: T_HomeData }> = ({ data }) => {
   console.log(data);
@@ -14,8 +16,8 @@ const HomeView: FC<{ data: T_HomeData }> = ({ data }) => {
       <HeroSection />
       <EventsSection events={data.events} />
       <PartnersSection partners={data.partners} />
-      <ProjectsSection />
-      <ResourcesSection />
+      <ProjectsSection projects={data.projects} />
+      <ResourcesSection resources={data.resources} />
       <TeamSection />
       <CouncilSection />
       <DonateSection />
@@ -25,22 +27,6 @@ const HomeView: FC<{ data: T_HomeData }> = ({ data }) => {
 };
 
 export default HomeView;
-
-const ProjectsSection = () => {
-  return (
-    <Section>
-      <div></div>
-    </Section>
-  );
-};
-
-const ResourcesSection = () => {
-  return (
-    <Section>
-      <div></div>
-    </Section>
-  );
-};
 
 const TeamSection = () => {
   return (
