@@ -1,22 +1,26 @@
 "use client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import generateRichTextOptions from "./utils";
+import { Document } from "@contentful/rich-text-types";
 import { FC } from "react";
 
-type Asset = {
+export type Asset = {
   sys: {
     id: string;
   };
   url: string;
   description: string;
+  width?: number;
+  height?: number;
+  title?: string;
 };
 
-type AssetLink = {
+export type AssetLink = {
   block: Asset[];
 };
 
-type Content = {
-  json: any;
+export type Content = {
+  json: Document;
   links: {
     assets: AssetLink;
   };
@@ -25,7 +29,7 @@ type Content = {
 const Markdown: FC<{ content: Content }> = ({ content }) => {
   return (
     <div className="w-full max-w-[900px] relative">
-      {documentToReactComponents(content.json, generateRichTextOptions(content.links))}
+      {documentToReactComponents(content.json, generateRichTextOptions({ links: content.links }))}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { buildQueryFromDefault } from "./buildQueryFromDefault";
 import { enDataConverter, enDataListConverter } from "../localization/enDataConverter";
+import { Document } from "@contentful/rich-text-types";
 
 export enum E_COLLECTIONS {
   PARTNERS = "partnersCollection",

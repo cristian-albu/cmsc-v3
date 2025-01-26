@@ -3,7 +3,7 @@ import client from "../client";
 
 interface UseMemoDataOptions {
   query: string;
-  dependencies?: any[];
+  dependencies?: unknown[];
 }
 
 function useFetcher<T>(initialData: T, options?: UseMemoDataOptions) {

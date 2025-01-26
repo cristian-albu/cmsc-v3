@@ -10,8 +10,8 @@ export const baseGallery = {
   [E_LOCALIZED_GALLERY_FIELDS.GALLERY_NAME]: "",
   [E_LOCALIZED_GALLERY_FIELDS.DESCRIPTION]: "",
   slug: "",
-  videoLinks: "" as any as string[],
-  mediaFilesCollection: MEDIA_FILES as any as { items: Array<{ url: string; title: string }> },
+  videoLinks: "" as unknown as string[],
+  mediaFilesCollection: MEDIA_FILES as unknown as { items: Array<{ url: string; title: string }> },
 };
 
 const localizedGallery = {

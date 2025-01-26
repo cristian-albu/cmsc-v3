@@ -5,7 +5,7 @@ import { E_COLLECTIONS } from "@/lib/utils";
 import React, { FC } from "react";
 import { T_BaseLocalizedEvents, T_ExtendedLocalizedEvents } from "../[slug]/queries/utils";
 
-const DynamicEventView: FC<T_EventsView> = ({ currEvent, relatedEvents }) => {
+const DynamicEventView: FC<T_EventsView> = ({ currEvent }) => {
   return (
     <div>
       <Markdown content={currEvent.content} />

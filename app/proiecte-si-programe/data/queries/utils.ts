@@ -1,6 +1,5 @@
 import { E_LANG } from "@/lib/localization";
 import { RICH_TEXT } from "@/lib/utils";
-import { Document } from "@contentful/rich-text-types";
 
 enum E_LOCALIZED_PROJECT_FIELDS {
   NAME = "name",

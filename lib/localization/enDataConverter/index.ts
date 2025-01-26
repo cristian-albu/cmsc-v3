@@ -1,12 +1,12 @@
 import { E_LANG } from "@/lib/localization";
 
 type OmitEnKeys<T> = {
-  [K in keyof T as K extends `${infer Base}${E_LANG.EN}` ? never : K]: T[K];
+  [K in keyof T as K extends `${string}${E_LANG.EN}` ? never : K]: T[K];
 };
 
-export type T_EnLocalizedT<T extends Record<string, any>> = T & { [key in `${string}${E_LANG.EN}`]: any };
+export type T_EnLocalizedT<T extends Record<string, unknown>> = T & { [key in `${string}${E_LANG.EN}`]: unknown };
 
-export function enDataConverter<T extends Record<string, any>>(data: T_EnLocalizedT<T>) {
+export function enDataConverter<T extends Record<string, unknown>>(data: T_EnLocalizedT<T>) {
   const enData = Object.entries(data).reduce((accum, [key, val]) => {
     if (key.endsWith(E_LANG.EN)) {
       const baseKey = key.slice(0, -2);
@@ -28,7 +28,7 @@ export function enDataConverter<T extends Record<string, any>>(data: T_EnLocaliz
   };
 }
 
-export function enDataListConverter<T extends Record<string, any>>(data: T_EnLocalizedT<T>[]) {
+export function enDataListConverter<T extends Record<string, unknown>>(data: T_EnLocalizedT<T>[]) {
   return data.map((item) => {
     return enDataConverter(item);
   });

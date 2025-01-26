@@ -6,7 +6,7 @@ import { T_BaseLocalizedProject, T_BaseProject } from "@/app/proiecte-si-program
 import { enDataListConverter } from "@/lib/utils";
 
 const ProjectsView: FC<{ items: T_BaseLocalizedProject[] }> = ({ items }) => {
-  const { data, error } = useFetcher(items);
+  const { data } = useFetcher(items);
   const dataLang = enDataListConverter<T_BaseProject>(data);
   const { langState } = useLangContext();
 

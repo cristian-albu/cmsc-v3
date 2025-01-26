@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }: T_Params) {
   const currSlug = (await params).slug;
 
-  const [{ projectsProgramsCollection }, slugs] = await Promise.all([
+  const [{ projectsProgramsCollection }] = await Promise.all([
     client.request<T_ProjectParams>(GET_PROJECT_BY_SLUG, { slug: currSlug }),
     getSlugs,
   ]);

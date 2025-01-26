@@ -1,37 +1,41 @@
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Image from "next/image";
+import { ReactNode } from "react";
+import { AssetLink } from ".";
+import { Options } from "@contentful/rich-text-react-renderer";
 
 export function youtube_parser(url: string) {
-  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-  var match = url.match(regExp);
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+
   return match && match[7].length == 11 ? match[7] : false;
 }
 
-function generateRichTextOptions(links: any) {
+function generateRichTextOptions({ links }: { links: { assets: AssetLink } }): Options {
   return {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
+      [BLOCKS.PARAGRAPH]: (_node, children: ReactNode) => {
         return <p style={{ margin: "1rem 0rem" }}>{children}</p>;
       },
-      [BLOCKS.HEADING_1]: (node: any, children: any) => {
+      [BLOCKS.HEADING_1]: (_node, children: ReactNode) => {
         return <h1 style={{ fontSize: "3rem", lineHeight: "3rem", marginBottom: "1rem" }}>{children}</h1>;
       },
-      [BLOCKS.HEADING_2]: (node: any, children: any) => {
+      [BLOCKS.HEADING_2]: (_node, children: ReactNode) => {
         return <h2 style={{ fontSize: "3rem", lineHeight: "3rem", marginBottom: "1rem" }}>{children}</h2>;
       },
-      [BLOCKS.HEADING_3]: (node: any, children: any) => {
+      [BLOCKS.HEADING_3]: (_node, children: ReactNode) => {
         return <h3 style={{ fontSize: "1.5rem", lineHeight: "1.5rem", marginBottom: "1rem" }}>{children}</h3>;
       },
-      [BLOCKS.HEADING_4]: (node: any, children: any) => {
+      [BLOCKS.HEADING_4]: (_node, children: ReactNode) => {
         return <h4 style={{ fontSize: "1.5rem", lineHeight: "1.5rem", marginBottom: "1rem" }}>{children}</h4>;
       },
-      [BLOCKS.UL_LIST]: (node: any, children: any) => {
+      [BLOCKS.UL_LIST]: (_node, children: ReactNode) => {
         return <ul style={{ listStyleType: "disc", paddingLeft: "1.25rem", marginBottom: "1rem" }}>{children}</ul>;
       },
-      [BLOCKS.OL_LIST]: (node: any, children: any) => {
+      [BLOCKS.OL_LIST]: (_node, children: ReactNode) => {
         return <ol style={{ listStyleType: "decimal", paddingLeft: "1.25rem", marginBottom: "1rem" }}>{children}</ol>;
       },
-      [INLINES.HYPERLINK]: (node: any, children: any) => {
+      [INLINES.HYPERLINK]: (node, children: ReactNode) => {
         return youtube_parser(node.data.uri) ? (
           <a style={{ display: "block", position: "relative", overflow: "hidden", width: "100%", paddingTop: "56.25%" }}>
             <iframe
@@ -61,9 +65,9 @@ function generateRichTextOptions(links: any) {
           </a>
         );
       },
-      [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const assetId = node.data.target.sys.id;
-        const asset = links.assets.block.find((asset: any) => asset.sys.id === assetId);
+        const asset = links.assets.block.find((asset) => asset.sys.id === assetId);
 
         if (!asset) {
           return null; // Fallback for missing assets
