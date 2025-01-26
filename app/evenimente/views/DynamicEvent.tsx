@@ -6,8 +6,6 @@ import React, { FC } from "react";
 import { T_BaseLocalizedEvents, T_ExtendedLocalizedEvents } from "../[slug]/queries/utils";
 
 const DynamicEventView: FC<T_EventsView> = ({ currEvent, relatedEvents }) => {
-  console.log(currEvent, relatedEvents);
-
   return (
     <div>
       <Markdown content={currEvent.content} />

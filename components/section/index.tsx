@@ -2,11 +2,15 @@ import { FC, JSX, ReactNode } from "react";
 
 type T_WaveType = "bottom" | "top" | "bottomDark";
 type T_Bg = "color" | "light" | "dark" | "gray";
-type T_Section = {
-  children: ReactNode;
+
+export type T_SectionProps = {
   wave?: T_WaveType;
   bg?: T_Bg;
 } & JSX.IntrinsicElements["section"];
+
+type T_Section = {
+  children: ReactNode;
+} & T_SectionProps;
 
 const colorClasses: Record<T_Bg, string> = {
   color: "bg-gradient-to-tr from-darkPurple to-pink text-[#ffffff]",
@@ -17,8 +21,9 @@ const colorClasses: Record<T_Bg, string> = {
 
 const waveClasses: Record<T_WaveType, string> = {
   bottom: "relative bottom-[-2px] bg-[url('/waves/wave_bottom.svg')] bg-repeat-x bg-bottom bg-contain h-[8rem]",
-  bottomDark: "relative bottom-[-2px] inverse bg-[url('/wave_bottomDark.svg')] bg-repeat-x bg-bottom bg-contain h-[8rem]",
-  top: "relative top-[-2px] bg-[url('/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
+  bottomDark:
+    "relative bottom-[-2px] inverse bg-[url('/waves/wave_bottom_dark.svg')] bg-repeat-x bg-bottom bg-contain h-[8rem]",
+  top: "relative top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
 };
 
 export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }) => {

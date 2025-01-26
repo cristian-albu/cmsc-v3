@@ -27,7 +27,7 @@ const PartnersSection: FC<T_PartnersSection> = ({ partners }) => {
         </Typography>
         <Line />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {data[langState].length === 0 ? (
+          {!Array.isArray(data[langState]) || data[langState].length === 0 ? (
             <div>{ERROR_MESSAGES[langState].empty}</div>
           ) : (
             data[langState].map((partner) => (

@@ -8,5 +8,6 @@ import Typography from "./typography";
 import Wrapper from "./wrapper";
 import Line from "./line";
 import Tooltip from "./tooltip";
+import CompoundView from "./compund-view";
 
-export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip };
+export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip, CompoundView };

@@ -45,7 +45,7 @@ const ProjectsSection: FC<T_ProjectsSection> = ({ projects }) => {
           </div>
 
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-10">
-            {projectsData[langState].length === 0 ? (
+            {!Array.isArray(projectsData[langState]) || projectsData[langState].length === 0 ? (
               <div>{ERROR_MESSAGES[langState].empty}</div>
             ) : (
               projectsData[langState].map((project) => (

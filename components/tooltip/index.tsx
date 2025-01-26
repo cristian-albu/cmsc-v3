@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, ReactNode, useState } from "react";
 
 type T_Tooltip = {

@@ -14,7 +14,6 @@ type T_ResourcesSection = {
 
 const ResourcesSection: FC<T_ResourcesSection> = ({ resources }) => {
   const { langState } = useLangContext();
-
   const data = useLocalizedData(resources?.resourcesCollection.items);
 
   const {
@@ -35,11 +34,14 @@ const ResourcesSection: FC<T_ResourcesSection> = ({ resources }) => {
           </div>
 
           <ul className="flex gap-3 flex-wrap">
-            {data[langState].length === 0 ? (
+            {!Array.isArray(data[langState]) || data[langState].length === 0 ? (
               <div>{ERROR_MESSAGES[langState].empty}</div>
             ) : (
               data[langState].map((resource) => {
-                const name = resource.name.length > 15 ? resource.name.slice(0, 15) + "..." : resource.name.length;
+                const name =
+                  typeof resource.name === "string" && resource.name.length > 15
+                    ? resource.name.slice(0, 15) + "..."
+                    : resource.name;
 
                 return (
                   <li key={resource.slug} className="border-[1px] border-solid border-white rounded-md p-2 ">

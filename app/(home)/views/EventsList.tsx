@@ -11,7 +11,7 @@ const EventsList: FC<{ events: T_BaseLocalizedEvents[] | undefined }> = ({ event
   const { langState } = useLangContext();
   const data = useLocalizedData(events);
 
-  if (!data[langState] || data[langState].length === 0) {
+  if (!data[langState] || !Array.isArray(data[langState]) || data[langState].length === 0) {
     return <Typography>{ERROR_MESSAGES[langState].empty}</Typography>;
   }
 
