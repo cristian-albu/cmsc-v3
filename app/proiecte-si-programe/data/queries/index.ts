@@ -31,3 +31,13 @@ export const GET_PROJECTS_LIST = gql`
     }
   }
 `;
+
+export const GET_RELATED_PROJECTS = gql`
+  query GetRelatedProjects($slug: String!) {
+    ${E_COLLECTIONS.PROJECTS}(where: {slug_not: $slug}, limit: 5) {
+      items {
+        ${buildQueryFromDefault(baseLocalizedProject)}
+      }
+    }
+  }
+`;
