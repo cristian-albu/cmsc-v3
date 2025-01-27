@@ -7,7 +7,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <div className="w-full flex flex-wrap justify-start items-center p-3">
+      <div className="w-full flex flex-wrap justify-between items-center p-3 border-b-solid border-[1px] border-gray">
         <Image
           src={"/etb/iln_logo.png"}
           width={200}

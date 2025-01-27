@@ -5,7 +5,7 @@ import { useLangContext } from "@/lib/contexts/LangContext";
 import { FC } from "react";
 import { donationData } from "./data";
 
-const DonateSection: FC = () => {
+const DonateSection: FC<{ bottom?: boolean }> = ({ bottom }) => {
   const { langState } = useLangContext();
 
   const {
@@ -14,7 +14,7 @@ const DonateSection: FC = () => {
   } = donationData;
 
   return (
-    <Section>
+    <Section wave={bottom ? "bottomDark" : undefined}>
       <Wrapper padding className="gap-5">
         <Typography level={1} heading={2}>
           {heading}
