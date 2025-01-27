@@ -11,7 +11,7 @@ export type T_ProjectRequest = {
 };
 
 export default async function getProjectData(slug: string, graphqlClient: GraphQLClient = client) {
-  let data: T_ProjectPageData = {
+  const data: T_ProjectPageData = {
     project: null,
     related: null,
   };
