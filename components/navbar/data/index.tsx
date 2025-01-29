@@ -19,6 +19,7 @@ export const navbarData: Readonly<T_NavItem[]> = [
   { [E_LANG.RO]: "Proiecte și programe", [E_LANG.EN]: "Projects and programs", link: E_PATHS.PROJECTS },
   { [E_LANG.RO]: "Resurse", [E_LANG.EN]: "Resources", link: E_PATHS.RESOURCES },
   { [E_LANG.RO]: "Evenimente", [E_LANG.EN]: "Events", link: E_PATHS.EVENTS },
+  { [E_LANG.RO]: "Emotional Treasure Box", [E_LANG.EN]: "Emotional Treasure Box", link: E_PATHS.EMOTIONAL_TREASURE_BOX },
   { [E_LANG.RO]: "Despre noi", [E_LANG.EN]: "About us", link: E_PATHS.ABOUT },
   { [E_LANG.RO]: "Contact", [E_LANG.EN]: "Contact", link: E_PATHS.CONTACT },
   { [E_LANG.RO]: "Donează", [E_LANG.EN]: "Donate", link: E_PATHS.DONATE, internal: false },

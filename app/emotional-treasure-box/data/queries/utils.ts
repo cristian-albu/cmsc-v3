@@ -37,6 +37,7 @@ export const baseNews = {
   [E_LOCALIZED_NEWS_FIELDS.CONTENT]: "",
   link: "",
   date: "",
+  thumbnail: { url: "", description: "" },
 };
 
 const localizedNewsFields = {

@@ -20,7 +20,7 @@ const EtbGallerySection: FC<T_EtbGallerySection> = ({ gallery }) => {
     },
   } = emotionalTreasureBoxData;
   return (
-    <Section>
+    <Section bg="gray" wave="bottom">
       <Wrapper padding>
         <Typography level={1} heading={2}>
           {heading}
