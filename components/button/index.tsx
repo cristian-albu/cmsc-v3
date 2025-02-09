@@ -20,7 +20,7 @@ type T_LinkButtonProps = T_CommonProps &
 type Props = T_ButtonProps | T_LinkButtonProps;
 
 const btnClass =
-  "bg-black flex justify-center items-center gap-1 text-white px-3 py-2 rounded-lg transition-all hover:scale-[1.05] active:scale-[0.97]";
+  "bg-black flex justify-center items-center gap-1 text-white px-3 py-2 rounded-lg transition-all enabled:hover:scale-[1.05] active:scale-[0.97] disabled:bg-gray-500 disabled:cursor-not-allowed";
 
 const Button: React.FC<Props> = ({ href, children, className, ...rest }) => {
   if (href) {

@@ -7,6 +7,7 @@ import { WindowContextProvider } from "@/lib/contexts/WindowContext";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import GlobalDonateSection from "./(home)/views/GlobalDonateSection";
+import { PageTransition } from "@/components";
 
 const crimsonText = Crimson_Text({ variable: "--font-crimsonText", subsets: ["latin"], weight: ["400", "700"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
           <GdprContextProvider>
             <LangContextProvider>
               <Navbar />
-              {children}
+              <PageTransition>{children}</PageTransition>
               <GlobalDonateSection />
               <Footer />
             </LangContextProvider>

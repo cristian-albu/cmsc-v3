@@ -2,6 +2,31 @@ import { E_LANG } from "@/lib/localization";
 import { LuBookMarked } from "react-icons/lu";
 import { MdOutlineVideoLibrary, MdPodcasts } from "react-icons/md";
 
+export const emotionalTrasureBoxProjectData = {
+  [E_LANG.RO]: {
+    title: "Despre proiect",
+    promotor: "Promotor de proiect: Fundația Centrul de Mediere și Securitate Comunitară",
+    partners: "Parteneri de proiect: Foreningen Hedda (Norvegia)",
+    value: "Valoarea totală a proiectului: 607.324 lei (122.040.83 euro)",
+    valueOfUnrebursableFinance:
+      "Valoarea finanțării nerambursabile (100% Granturi SEE și Norvegiene): 607.324 lei (122.040.83 euro)",
+    duration: "Durată: 4 luni (1 noiembrie 2024 -28 februarie 2025)",
+    location: "Locație de implementare: Iași (România) și Oslo (Norvegia)",
+    facebook: { text: "Facebook", link: "https://www.facebook.com/WhatHappenedToTheHeart" },
+  },
+  [E_LANG.EN]: {
+    title: "About the project",
+    promotor: "Project Promoter: Mediation and Community Security Center Foundation",
+    partners: "Project Partner: Foreningen Hedda (Norway)",
+    value: "Total project value: 607,324 RON (122,040.83 EUR)",
+    valueOfUnrebursableFinance:
+      "Non-reimbursable funding value (100% EEA and Norwegian Grants): 607,324 RON (122,040.83 EUR)",
+    duration: "Duration: 4 months (November 1, 2024 - February 28, 2025)",
+    location: "Implementation location: Iași (Romania) and Oslo (Norway)",
+    facebook: { text: "Facebook", link: "https://www.facebook.com/WhatHappenedToTheHeart" },
+  },
+};
+
 export const emotionalTreasureBoxData = {
   [E_LANG.RO]: {
     heading: "Emotional Treasure Box -What Happened to the Heart",
@@ -30,11 +55,7 @@ export const emotionalTreasureBoxData = {
     p3: `Cooperare bilaterala Romania - Norvegia in 5 domenii culturale prin co-crearea 
     Emoțional Treasure Box -What Happened to the Heart construita prin schimburi de 
     experiența și lucru în comun intre CMSC și Hedda.`,
-    p4: `Initiativa bilaterală implementată de Unitatea de Management a Proiectului din cadrul 
-    Ministerului Culturii, în calitate de Operator al Programului RO-CULTURA, în parteneriat 
-    cu Artă și Cultură din Norvegia, în calitate de partener de Program, și finanțată cu 
-    sprijinul Granturilor SEE și Norvegiene 2014 – 2021 prin Fondul Național Bilateral, 
-    gestionat de Punctul Național de Contact din cadrul Ministerului Investițiilor și Proiectelor Europene.`,
+    p4: `Inițiativă bilaterală finanțată prin Granturile SEE și Norvegiene - Fondul Național Bilateral în cadrul Programului RO-CULTURA`,
     articles: { heading: "Articole" },
     gallery: { heading: "Galerie foto-video" },
     news: { heading: "Noutăți" },
@@ -78,12 +99,7 @@ export const emotionalTreasureBoxData = {
     p3: `Bilateral cooperation between Romania and Norway in five cultural fields  
     through the co-creation of the Emotional Treasure Box -What Happened to the Heart,  
     built through experience exchange and joint efforts between CMSC and Hedda.`,
-    p4: `The bilateral initiative is implemented by the Project Management Unit  
-    within the Ministry of Culture, as the Operator of the RO-CULTURA Program,  
-    in partnership with Art and Culture from Norway, as a Program Partner,  
-    and financed with support from the EEA and Norway Grants 2014 – 2021  
-    through the Bilateral National Fund, managed by the National Contact Point  
-    within the Ministry of Investments and European Projects.`,
+    p4: `Bilateral initiative financed by the EEA and Norwegian Grants - Bilateral National Fund within the RO-CULTURE Program`,
     articles: { heading: "Articles" },
     gallery: { heading: "Photo-Video Gallery" },
     news: { heading: "News" },
@@ -99,25 +115,24 @@ export const emotionalTreasureBoxFooterData = {
   [E_LANG.RO]: {
     disclaimer: `Inițiativă bilaterală finanțată prin Granturile SEE și Norvegiene - Fondul Național Bilateral în cadrul Programului RO-CULTURA`,
     info1: {
-      text: `Granturile SEE reprezintă contribuția Islandei, Principatului Liechtenstein și Regatului Norvegiei  
-      la reducerea disparităților economice și sociale în Spațiul Economic European și la consolidarea  
-      relațiilor bilaterale cu cele 15 state beneficiare din Europa de Est, Europa de Sud și statele baltice.  
-      Aceste mecanisme de finanțare sunt stabilite prin Acordul privind Spațiul Economic European,  
-      care reunește statele membre ale Uniunii Europene și Islanda, Liechtenstein și Norvegia ca parteneri egali  
-      pe piața internă. În total, cele trei state au contribuit cu 3,3 miliarde EUR între 1994 și 2014 și  
-      1,55 miliarde EUR pentru perioada de finanțare 2014-2021.  
-      Mai multe detalii sunt disponibile pe:`,
+      text: `Granturile SEE și Norvegiene reprezintă contribuția Islandei, Liechtensteinului și 
+      Norvegiei la o Europă verde, competitivă și incluzivă. Există două obiective generale: 
+      reducerea disparităților economice și sociale în Europa și consolidarea relațiilor bilaterale 
+      dintre țările donatoare și 15 țări UE din Europa Centrală și de Sud și Țările Baltice. Cele 
+      trei țări donatoare cooperează strâns cu UE prin intermediul Acordului privind Spațiul Economic 
+      European (SEE). Între 1994 și 2014, donatorii au furnizat 3,3 miliarde EUR prin scheme 
+      consecutive de granturi. Pentru perioada 2014-2021, granturile SEE și Norvegiene se ridică 
+      la 2,8 miliarde EUR. Mai multe detalii sunt disponibile pe:`,
       link1: { text: "www.eeagrants.org", href: "https://www.eeagrants.org" },
       linksConnection: "și",
       link2: { text: "www.eeagrants.ro", href: "https://www.eeagrants.ro" },
     },
 
     info2: {
-      text: `Programul RO-CULTURA este implementat de Ministerul Culturii prin Unitatea de Management a  
-      Proiectului și are ca obiectiv general consolidarea dezvoltării economice și sociale prin cooperare  
-      culturală, antreprenoriat cultural și managementul patrimoniului cultural.  
-      Bugetul total al programului este de aproximativ 34 milioane EUR.  
-      Mai multe detalii sunt disponibile pe:`,
+      text: `Programul RO-CULTURA este implementat de Ministerul Culturii prin Unitatea de 
+      Management a Proiectului și are ca obiectiv general consolidarea dezvoltării economice și 
+      sociale prin cooperare culturală, antreprenoriat cultural și managementul patrimoniului cultural. 
+      Bugetul Programului este de aproximativ 34 milioane de euro. Mai multe detalii sunt disponibile pe:`,
       link1: { text: "www.ro-cultura.ro", href: "https://www.ro-cultura.ro" },
     },
   },
@@ -125,25 +140,25 @@ export const emotionalTreasureBoxFooterData = {
   [E_LANG.EN]: {
     disclaimer: `Bilateral initiative funded through EEA and Norway Grants - National Bilateral Fund under the RO-CULTURA Program`,
     info1: {
-      text: `The EEA Grants represent the contribution of Iceland, Liechtenstein, and Norway  
-      to reducing economic and social disparities in the European Economic Area  
-      and strengthening bilateral relations with the 15 beneficiary states in Eastern and Southern Europe and the Baltic states.  
-      These funding mechanisms are established under the Agreement on the European Economic Area,  
-      which brings together the EU member states and Iceland, Liechtenstein, and Norway as equal partners  
-      in the internal market. In total, the three states contributed 3.3 billion EUR between 1994 and 2014  
-      and 1.55 billion EUR for the 2014-2021 funding period.  
-      More details are available at:`,
+      text: `The EEA and Norwegian grants represent the contribution of Iceland, Liechtenstein and 
+      Norway to a green, competitive and inclusive Europe. There are two general objectives: 
+      reducing economic and social disparities in Europe and strengthening bilateral relations 
+      between donor countries and 15 EU countries in Central and Southern Europe and the Baltic States. The 
+      three donor countries cooperate closely with the EU through the Economic Area Agreement 
+      European (EEA). Between 1994 and 2014, donors provided €3.3 billion through the schemes 
+      consecutive grants. For the period 2014-2021, the EEA and Norwegian grants are increasing 
+      to EUR 2.8 billion. More details are available at:`,
       link1: { text: "www.eeagrants.org", href: "https://www.eeagrants.org" },
       linksConnection: "and",
       link2: { text: "www.eeagrants.ro", href: "https://www.eeagrants.ro" },
     },
 
     info2: {
-      text: `The RO-CULTURA Program is implemented by the Ministry of Culture through the Project Management Unit  
-      and aims to strengthen economic and social development through cultural cooperation, cultural entrepreneurship,  
-      and cultural heritage management.  
-      The total budget of the program is approximately 34 million EUR.  
-      More details are available at:`,
+      text: `The RO-CULTURE program is implemented by the Ministry of Culture through the 
+      Project Management Unit and has as its general objective the consolidation of economic 
+      and social development through cultural cooperation, cultural entrepreneurship and cultural 
+      heritage management. The Program's budget is approximately 34 million euros. 
+      More details are available on:`,
       link1: { text: "www.ro-cultura.ro", href: "https://www.ro-cultura.ro" },
     },
   },

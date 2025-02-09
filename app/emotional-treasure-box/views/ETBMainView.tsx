@@ -1,7 +1,8 @@
 import { Typography, Line, Button, Tooltip } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import { FC } from "react";
-import { emotionalTreasureBoxData } from "../data/static";
+import { emotionalTrasureBoxProjectData, emotionalTreasureBoxData } from "../data/static";
+import Link from "next/link";
 
 const EtbMainContentView: FC = () => {
   const { langState } = useLangContext();
@@ -10,13 +11,18 @@ const EtbMainContentView: FC = () => {
     [langState]: { heading, description, t1, p1, t2, p2, t3, p3, p4, headerLinks },
   } = emotionalTreasureBoxData;
 
+  const {
+    [langState]: { title, promotor, partners, value, valueOfUnrebursableFinance, duration, location, facebook },
+  } = emotionalTrasureBoxProjectData;
+
   return (
     <>
       <Typography level={1} heading={1}>
         {heading}
       </Typography>
+      <Typography className="mb-5">{p4}</Typography>
 
-      <div className="text-sm flex flex-wrap gap-3">
+      <div className="text-sm flex flex-wrap gap-3 mb-5">
         {headerLinks.map((item) => (
           <Tooltip key={item.text} text={item.description}>
             <Button aria-label={item.description}>
@@ -26,6 +32,7 @@ const EtbMainContentView: FC = () => {
           </Tooltip>
         ))}
       </div>
+
       <Line />
       <Typography>{description}</Typography>
       <Typography level={2} heading={2}>
@@ -43,7 +50,19 @@ const EtbMainContentView: FC = () => {
       </Typography>
       <Typography>{p3}</Typography>
       <PlaceholderVideo />
-      <Typography>{p4}</Typography>
+
+      <div className="">
+        <Typography level={2} heading={2}>
+          {title}
+        </Typography>
+        <Typography>{promotor}</Typography>
+        <Typography>{partners}</Typography>
+        <Typography>{value}</Typography>
+        <Typography>{valueOfUnrebursableFinance}</Typography>
+        <Typography>{duration}</Typography>
+        <Typography>{location}</Typography>
+        <Link href={facebook.link}>{facebook.text}</Link>
+      </div>
     </>
   );
 };

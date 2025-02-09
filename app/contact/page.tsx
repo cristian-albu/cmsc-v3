@@ -1,7 +1,6 @@
 import React from "react";
+import ContactView from "./views";
 
-const Page = () => {
-  return <div>ContactPage</div>;
-};
-
-export default Page;
+export default function Page() {
+  return <ContactView />;
+}

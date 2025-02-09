@@ -9,5 +9,6 @@ import Wrapper from "./wrapper";
 import Line from "./line";
 import Tooltip from "./tooltip";
 import CompoundView from "./compund-view";
+import PageTransition from "./page-transition";
 
-export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip, CompoundView };
+export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip, CompoundView, PageTransition };

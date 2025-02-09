@@ -10,3 +10,17 @@ body {
   background: var(--background);
   font-family: "Crimson Text", serif;
 }
+
+@keyframes blurIn {
+  from {
+    filter: blur(2);
+  }
+
+  to {
+    filter: blur(0);
+  }
+}
+
+.page-transition {
+  animation: blurIn 0.25s ease-in-out;
+}
