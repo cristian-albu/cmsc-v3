@@ -1,7 +1,7 @@
 "use client";
 import { Button, Section, Typography, Wrapper } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
-import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { contactData } from "../data/static";
 import { Checkbox, Textarea, TextInput } from "@/components/inputs";
 import Link from "next/link";
