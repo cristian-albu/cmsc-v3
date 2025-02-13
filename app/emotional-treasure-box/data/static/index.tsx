@@ -138,27 +138,25 @@ export const emotionalTreasureBoxFooterData = {
   },
 
   [E_LANG.EN]: {
-    disclaimer: `Bilateral initiative funded through EEA and Norway Grants - National Bilateral Fund under the RO-CULTURA Program`,
+    disclaimer: `This bilateral initiative is financed with the support of EEA and Norway Grants 2014 – 2021 through the National Fund for Bilateral Relations within the RO-CULTURE Programme`,
     info1: {
-      text: `The EEA and Norwegian grants represent the contribution of Iceland, Liechtenstein and 
-      Norway to a green, competitive and inclusive Europe. There are two general objectives: 
-      reducing economic and social disparities in Europe and strengthening bilateral relations 
-      between donor countries and 15 EU countries in Central and Southern Europe and the Baltic States. The 
-      three donor countries cooperate closely with the EU through the Economic Area Agreement 
-      European (EEA). Between 1994 and 2014, donors provided €3.3 billion through the schemes 
-      consecutive grants. For the period 2014-2021, the EEA and Norwegian grants are increasing 
-      to EUR 2.8 billion. More details are available at:`,
+      text: `The EEA and Norway Grants represent the contribution of Iceland, Liechtenstein and Norway 
+      towards a green, competitive and inclusive Europe. There are two overall objectives: reduction of 
+      economic and social disparities in Europe, and to strengthen bilateral relations between the donor 
+      countries and 15 EU countries in Central and Southern Europe and the Baltics. The three donor 
+      countries cooperate closely with the EU through the Agreement on the European Economic Area (EEA). 
+      The donors have provided €3.3 billion through consecutive grant schemes between 1994 and 2014. 
+      For the period 2014-2021, the EEA and Norway Grants amount to €2.8 billion More details are available at:`,
       link1: { text: "www.eeagrants.org", href: "https://www.eeagrants.org" },
       linksConnection: "and",
       link2: { text: "www.eeagrants.ro", href: "https://www.eeagrants.ro" },
     },
 
     info2: {
-      text: `The RO-CULTURE program is implemented by the Ministry of Culture through the 
-      Project Management Unit and has as its general objective the consolidation of economic 
-      and social development through cultural cooperation, cultural entrepreneurship and cultural 
-      heritage management. The Program's budget is approximately 34 million euros. 
-      More details are available on:`,
+      text: `RO-CULTURE is implemented in Romania by the Ministry of Culture through 
+      the Project Management Unit. The Programme aims to strengthen social and economic 
+      development through cultural cooperation, cultural entrepreneurship and cultural 
+      heritage management. The total budget amounts to approximately 34 million EUR. For more details:`,
       link1: { text: "www.ro-cultura.ro", href: "https://www.ro-cultura.ro" },
     },
   },
