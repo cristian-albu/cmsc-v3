@@ -25,7 +25,7 @@ const EtbMainContentView: FC = () => {
       <div className="text-sm flex flex-wrap gap-3 mb-5">
         {headerLinks.map((item) => (
           <Tooltip key={item.text} text={item.description}>
-            <Button aria-label={item.description}>
+            <Button aria-label={item.description} href={item.resource} target="_blank" rel="noopener noreferrer">
               {item.icon}
               {item.text}
             </Button>

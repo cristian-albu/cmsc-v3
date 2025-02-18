@@ -60,7 +60,12 @@ export const emotionalTreasureBoxData = {
     gallery: { heading: "Galerie foto-video" },
     news: { heading: "Noutăți" },
     headerLinks: [
-      { text: "Povești de citit", resource: "", description: "The description to be added", icon: <LuBookMarked /> },
+      {
+        text: "Povești de citit",
+        resource: "/etb/EMOTIONAL TRESURE BOX_RO_FORMAT ELECTRONIC.pdf",
+        description: "Emotional Treasure Box format electronic pdf",
+        icon: <LuBookMarked />,
+      },
       { text: "Povești de ascultat", resource: "", description: "The description to be added", icon: <MdPodcasts /> },
       {
         text: "Povești de văzut",
@@ -99,12 +104,17 @@ export const emotionalTreasureBoxData = {
     p3: `Bilateral cooperation between Romania and Norway in five cultural fields  
     through the co-creation of the Emotional Treasure Box -What Happened to the Heart,  
     built through experience exchange and joint efforts between CMSC and Hedda.`,
-    p4: `Bilateral initiative financed by the EEA and Norwegian Grants - Bilateral National Fund within the RO-CULTURE Program`,
+    p4: `This bilateral initiative is financed with the support of EEA and Norway Grants 2014 – 2021 through the National Fund for Bilateral Relations within the RO-CULTURE Programme`,
     articles: { heading: "Articles" },
     gallery: { heading: "Photo-Video Gallery" },
     news: { heading: "News" },
     headerLinks: [
-      { text: "Stories to read", resource: "", description: "The description to be added", icon: <LuBookMarked /> },
+      {
+        text: "Stories to read",
+        resource: "/etb/EMOTIONAL TRESURE BOX_RO_FORMAT ELECTRONIC.pdf",
+        description: "Emotional Treasure Box electronic format pdf",
+        icon: <LuBookMarked />,
+      },
       { text: "Stories to listen", resource: "", description: "The description to be added", icon: <MdPodcasts /> },
       { text: "Storied to see", resource: "", description: "The description to be added", icon: <MdOutlineVideoLibrary /> },
     ],
