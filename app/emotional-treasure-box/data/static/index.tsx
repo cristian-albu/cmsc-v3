@@ -111,7 +111,7 @@ export const emotionalTreasureBoxData = {
     headerLinks: [
       {
         text: "Stories to read",
-        resource: "/etb/EMOTIONAL TRESURE BOX_RO_FORMAT ELECTRONIC.pdf",
+        resource: "/etb/EMOTIONAL TRESURE BOX_EN_ELECTRONIC BOOK.pdf",
         description: "Emotional Treasure Box electronic format pdf",
         icon: <LuBookMarked />,
       },
