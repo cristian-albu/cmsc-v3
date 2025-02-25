@@ -1,6 +1,12 @@
 import { buildQueryFromDefault, E_COLLECTIONS } from "@/lib/utils";
 import { gql } from "graphql-request";
-import { baseLocalizedArticles, baseLocalizedGallery, baseLocalizedNews, extendedLocalizedArticles } from "./utils";
+import {
+  baseLocalizedArticles,
+  baseLocalizedGallery,
+  baseLocalizedNews,
+  extendedLocalizedArticles,
+  localizedAudiobooks,
+} from "./utils";
 
 export const GET_GALLERY_SLUGS = gql`
     query {
@@ -84,6 +90,16 @@ export const GET_ARTICLES_LIST = gql`
         ${E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_ARTICLES} {
             items {
                 ${buildQueryFromDefault(baseLocalizedArticles)}
+            }
+        }
+    }
+`;
+
+export const GET_AUDIOBOOKS_LIST = gql`
+    query {
+        ${E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS} {
+            items {
+                ${buildQueryFromDefault(localizedAudiobooks)}
             }
         }
     }

@@ -1,4 +1,5 @@
 import { E_LANG } from "@/lib/localization";
+import { E_PATHS } from "@/lib/paths";
 import { LuBookMarked } from "react-icons/lu";
 import { MdOutlineVideoLibrary, MdPodcasts } from "react-icons/md";
 
@@ -62,14 +63,19 @@ export const emotionalTreasureBoxData = {
     headerLinks: [
       {
         text: "Povești de citit",
-        resource: "/etb/EMOTIONAL TRESURE BOX_RO_FORMAT ELECTRONIC.pdf",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-citit`,
         description: "Emotional Treasure Box format electronic pdf",
         icon: <LuBookMarked />,
       },
-      { text: "Povești de ascultat", resource: "", description: "The description to be added", icon: <MdPodcasts /> },
+      {
+        text: "Povești de ascultat",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-ascultat`,
+        description: "The description to be added",
+        icon: <MdPodcasts />,
+      },
       {
         text: "Povești de văzut",
-        resource: "",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-vazut`,
         description: "The description to be added",
         icon: <MdOutlineVideoLibrary />,
       },
@@ -111,12 +117,22 @@ export const emotionalTreasureBoxData = {
     headerLinks: [
       {
         text: "Stories to read",
-        resource: "/etb/EMOTIONAL TRESURE BOX_EN_ELECTRONIC BOOK.pdf",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-citit`,
         description: "Emotional Treasure Box electronic format pdf",
         icon: <LuBookMarked />,
       },
-      { text: "Stories to listen", resource: "", description: "The description to be added", icon: <MdPodcasts /> },
-      { text: "Storied to see", resource: "", description: "The description to be added", icon: <MdOutlineVideoLibrary /> },
+      {
+        text: "Stories to listen",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-ascultat`,
+        description: "The description to be added",
+        icon: <MdPodcasts />,
+      },
+      {
+        text: "Storied to see",
+        resource: `${E_PATHS.EMOTIONAL_TREASURE_BOX}/povesti-de-vazut`,
+        description: "The description to be added",
+        icon: <MdOutlineVideoLibrary />,
+      },
     ],
   },
 };
@@ -170,4 +186,9 @@ export const emotionalTreasureBoxFooterData = {
       link1: { text: "www.ro-cultura.ro", href: "https://www.ro-cultura.ro" },
     },
   },
+};
+
+export const backToEtb = {
+  [E_LANG.RO]: "Înapoi la Emotional Treasure Box",
+  [E_LANG.EN]: "Back to Emotional Treasure Box",
 };

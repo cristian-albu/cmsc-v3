@@ -11,6 +11,7 @@ export enum E_COLLECTIONS {
   EMOTIONAL_TREASURE_BOX_ARTICLES = "emotionalTreasureBoxArticlesCollection",
   EMOTIONAL_TREASURE_BOX_GALLERY = "emotionalTreasureBoxMediaGalleryCollection",
   EMOTIONAL_TREASURE_BOX_NEWS = "emotionalTreasureBoxNewsCollection",
+  EMOTIONAL_TREASURE_BOX_AUDIOBOOKS = "emotionalTreasureBoxAudiobooksCollection",
 }
 
 export const RICH_TEXT = {

@@ -90,3 +90,30 @@ export type T_ETB_Article = typeof baseArticles;
 export type T_ETB_LocalizedArticle = typeof baseLocalizedArticles;
 export type T_ETB_ExtendedArticle = typeof extendedArticles;
 export type T_ETB_ExtendedLocalizedArticle = typeof extendedLocalizedArticles;
+
+enum E_LOCALIZED_AUDIOBOOKS {
+  TITLE = "title",
+  THUMBNAIL = "thumbnail",
+}
+
+export const baseAudiobooks = {
+  title: "",
+  author: "",
+  editor: "",
+  reading: "",
+  link: "",
+  thumbnail: { url: "", description: "" },
+};
+
+const localizedAudiobooksFields = {
+  [`${E_LOCALIZED_AUDIOBOOKS.TITLE}${E_LANG.EN}`]: "",
+  [`${E_LOCALIZED_AUDIOBOOKS.THUMBNAIL}${E_LANG.EN}`]: { url: "", description: "" },
+};
+
+export const localizedAudiobooks = {
+  ...baseAudiobooks,
+  ...localizedAudiobooksFields,
+};
+
+export type T_ETB_BaseAudiobooks = typeof baseAudiobooks;
+export type T_ETB_LocalizedAudiobooks = typeof localizedAudiobooks;

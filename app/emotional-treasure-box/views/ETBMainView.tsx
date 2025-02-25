@@ -1,4 +1,4 @@
-import { Typography, Line, Button, Tooltip } from "@/components";
+import { Typography, Line, Button, Tooltip, Video } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import { FC } from "react";
 import { emotionalTrasureBoxProjectData, emotionalTreasureBoxData } from "../data/static";
@@ -25,7 +25,7 @@ const EtbMainContentView: FC = () => {
       <div className="text-sm flex flex-wrap gap-3 mb-5">
         {headerLinks.map((item) => (
           <Tooltip key={item.text} text={item.description}>
-            <Button aria-label={item.description} href={item.resource} target="_blank" rel="noopener noreferrer">
+            <Button aria-label={item.description} href={item.resource}>
               {item.icon}
               {item.text}
             </Button>
@@ -39,17 +39,22 @@ const EtbMainContentView: FC = () => {
         {t1}
       </Typography>
       <Typography>{p1}</Typography>
-      <PlaceholderVideo />
+
+      <Video
+        source="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FWhatHappenedToTheHeart%2Fvideos%2F1758381074911301%2F&show_text=false&width=560&t=0"
+        embed={true}
+      />
+
       <Typography level={2} heading={2}>
         {t2}
       </Typography>
       <Typography>{p2}</Typography>
-      <PlaceholderVideo />
+      <Video />
       <Typography level={2} heading={2}>
         {t3}
       </Typography>
       <Typography>{p3}</Typography>
-      <PlaceholderVideo />
+      <Video />
 
       <div className="">
         <Typography level={2} heading={2}>
@@ -68,7 +73,3 @@ const EtbMainContentView: FC = () => {
 };
 
 export default EtbMainContentView;
-
-const PlaceholderVideo: FC = () => {
-  return <div className="w-full aspect-[16/9] bg-gray-200 flex justify-center items-center mb-5">Placeholder for video</div>;
-};

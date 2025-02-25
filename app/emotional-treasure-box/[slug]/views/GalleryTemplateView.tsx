@@ -9,7 +9,7 @@ import Image from "next/image";
 import { youtube_parser } from "@/components/rich-text/utils";
 import Link from "next/link";
 import { E_PATHS } from "@/lib/paths";
-import { backToEtb } from "./ArticleTemplateView";
+import { backToEtb } from "../../data/static";
 
 type T_GalleryTemplateView = {
   data: T_ETB_LocalizedGallery;

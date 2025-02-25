@@ -10,5 +10,20 @@ import Line from "./line";
 import Tooltip from "./tooltip";
 import CompoundView from "./compund-view";
 import PageTransition from "./page-transition";
+import { Video } from "./video";
 
-export { Button, Card, Footer, Navbar, Markdown, Section, Typography, Wrapper, Line, Tooltip, CompoundView, PageTransition };
+export {
+  Button,
+  Card,
+  Footer,
+  Navbar,
+  Markdown,
+  Section,
+  Typography,
+  Wrapper,
+  Line,
+  Tooltip,
+  CompoundView,
+  PageTransition,
+  Video,
+};

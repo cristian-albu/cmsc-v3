@@ -8,15 +8,10 @@ import useLocalizedData from "@/lib/hooks/useLocalizedData";
 import Image from "next/image";
 import Link from "next/link";
 import { E_PATHS } from "@/lib/paths";
-import { E_LANG } from "@/lib/localization";
+import { backToEtb } from "../../data/static";
 
 type T_ArticleTemplateView = {
   data: T_ETB_ExtendedLocalizedArticle;
-};
-
-export const backToEtb = {
-  [E_LANG.RO]: "Înapoi la Emotional Treasure Box",
-  [E_LANG.EN]: "Back to Emotional Treasure Box",
 };
 
 const ArticleTemplateView: FC<T_ArticleTemplateView> = ({ data }) => {
