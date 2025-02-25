@@ -1,21 +1,13 @@
 import { GraphQLClient } from "graphql-request";
 
-const client = new GraphQLClient(
-  `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
-  {
-    headers: {
-      Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-    },
-  }
-);
+const inputUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`;
+const headers = {
+  Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+};
+
+const client = new GraphQLClient(inputUrl, {
+  fetch: (input: RequestInfo | URL, init?: RequestInit) => fetch(input, { ...init, next: { revalidate: 3600 } }),
+  headers: headers,
+});
 
 export default client;
-
-export const testClient = new GraphQLClient(
-  `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTETFUL_TEST_ENVIRONMENT}`,
-  {
-    headers: {
-      Authorization: `Bearer ${process.env.CONTENTFUL_TEST_ACCESS_TOKEN}`,
-    },
-  }
-);
