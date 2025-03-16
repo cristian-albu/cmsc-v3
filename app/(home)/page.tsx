@@ -1,11 +1,9 @@
-import React from "react";
-import HomeView from "./views";
-import getHomeData from "./data/queries/getHomeData";
+import { getHomeData, HomePage } from "@/app/_views/home";
 
 const Page = async () => {
   const homeData = await getHomeData();
 
-  return <HomeView data={homeData} />;
+  return <HomePage data={homeData} />;
 };
 
 export default Page;

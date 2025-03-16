@@ -11,7 +11,11 @@ const Checkbox: FC<T_Checkbox> = ({ children, labelProps = { className: "" }, ..
 
   return (
     <label className={`flex gap-1 ${labelClassName ?? ""}`} {...restLabel}>
-      <input type="checkbox" className={`cursor-pointer ${inputClassName ?? ""}`} {...restInput} />
+      <input
+        type="checkbox"
+        className={`cursor-pointer disabled:cursor-not-allowed ${inputClassName ?? ""}`}
+        {...restInput}
+      />
       {children}
     </label>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { navbarData } from "./data";
 import Link from "next/link";
 import { useLangContext } from "@/lib/contexts/LangContext";
@@ -8,56 +8,110 @@ import { E_LANG } from "@/lib/localization";
 import Image from "next/image";
 import { HiOutlineMenu } from "react-icons/hi";
 import { usePathname } from "next/navigation";
+import { handleArrows, handleTabs } from "./utils";
 
 const RESPONSIVE_BREAKPOINT = 960;
 
 const Navbar: FC = () => {
   const [homeData, ...navData] = navbarData;
-  const navRef = useRef<null | HTMLElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
+  const langBtnRef = useRef<HTMLButtonElement>(null);
+  const homeBtnRef = useRef<HTMLAnchorElement>(null);
+
   const { langState, updateLangState } = useLangContext();
   const { clickTargetState, resizeState } = useWindowContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const pathname = usePathname();
 
-  const handleMenuClick = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const isMobileWidth = resizeState.width < RESPONSIVE_BREAKPOINT;
+  const isMenuStyled = isMenuOpen || !isMobileWidth;
 
   const handleLangClick = () => {
     updateLangState(langState === E_LANG.EN ? E_LANG.RO : E_LANG.EN);
   };
 
+  const handleKeyboard = (event: KeyboardEvent<HTMLElement>) => {
+    if (!document) return;
+
+    if (event.key === "Escape") {
+      homeBtnRef.current?.focus();
+      setIsMenuOpen(false);
+      return;
+    }
+
+    if (event.key === "Tab") {
+      handleTabs(event, isMenuOpen, { menuBtnRef, langBtnRef });
+    }
+
+    if (isMenuOpen) {
+      handleArrows(event, { homeBtnRef, langBtnRef });
+    }
+  };
+
+  const handleMenuClick = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
-    if (clickTargetState && !navRef.current?.contains(clickTargetState)) {
+    const isOutsideMenuClick =
+      isMenuOpen &&
+      clickTargetState &&
+      clickTargetState !== menuBtnRef.current &&
+      !navRef.current?.contains(clickTargetState);
+
+    if (isOutsideMenuClick) {
+      console.log(clickTargetState);
       setIsMenuOpen(false);
     }
   }, [clickTargetState]);
-
-  const isMobileWidth = resizeState.width < RESPONSIVE_BREAKPOINT;
-  const isMenuStyled = isMenuOpen || !isMobileWidth;
 
   return (
     <nav
       ref={navRef}
       className="bg-black max-w-[100vw] min-h-[60px] flex text-white w-full fixed top-0 left-0 z-[99] justify-between items-stretch"
+      onKeyDown={handleKeyboard}
     >
-      <Link href={homeData.link} className="mr-auto flex flex-col justify-center items-center px-2">
+      <Link
+        ref={homeBtnRef}
+        href={homeData.link}
+        className="mr-auto flex flex-col justify-center items-center px-2"
+        onFocus={handleMenuClose}
+      >
         <Image width={180} height={60} src={"/cmsc_logo_white.svg"} alt={homeData[langState]} />
       </Link>
+
+      {isMobileWidth && (
+        <button
+          aria-label="Open and close the menu"
+          ref={menuBtnRef}
+          className="relative z-[99] p-3"
+          onClick={handleMenuClick}
+        >
+          <HiOutlineMenu className="text-2xl" />
+        </button>
+      )}
+
       <ul
         className={
           isMobileWidth
             ? "absolute right-0 top-[60px] transition-all ease-in-out duration-300 flex flex-col bg-black p-5 rounded-bl-2xl shadow-lg"
-            : "flex w-full"
+            : "flex w-full items-center gap-4 justify-end"
         }
         style={{ opacity: isMenuStyled ? 1 : 0, right: isMenuStyled ? "0px" : "-100vw" }}
       >
-        {navData.map((item) => (
+        {navData.map((item, index) => (
           <li key={item.link}>
             <Link
               href={item.link}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={handleMenuClose}
               className={`${pathname === item.link ? "underline" : ""}`}
+              id={index === navData.length - 1 ? "last" : index === 0 ? "first" : undefined}
             >
               {item[langState]}
             </Link>
@@ -65,13 +119,7 @@ const Navbar: FC = () => {
         ))}
       </ul>
 
-      {isMobileWidth && (
-        <button className="relative z-[99] p-3" onClick={handleMenuClick}>
-          <HiOutlineMenu className="text-2xl" />
-        </button>
-      )}
-
-      <button className="p-3" onClick={handleLangClick}>
+      <button ref={langBtnRef} className="p-3" onClick={handleLangClick} onFocus={handleMenuClose}>
         {langState === E_LANG.EN ? (
           <Image src={"/ro_flag.svg"} width={30} height={15} alt="romanian flag" />
         ) : (

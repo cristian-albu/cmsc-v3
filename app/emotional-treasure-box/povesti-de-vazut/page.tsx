@@ -1,5 +1,5 @@
-import StoriesToView from "../views/StoriesToView";
+import { StoriesToViewPage } from "@/app/_views/emotional-treasure-box";
 
 export default async function Page() {
-  return <StoriesToView />;
+  return <StoriesToViewPage />;
 }

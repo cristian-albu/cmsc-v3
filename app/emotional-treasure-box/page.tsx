@@ -1,8 +1,7 @@
-import EmotionalTreasureBoxView from "./views/EmotionalTreasureBoxView";
-import getETBData from "./data/queries/getETBdata";
+import { EmotionalTreasureBoxPage, getETBData } from "@/app/_views/emotional-treasure-box";
 
 export default async function Page() {
   const etbData = await getETBData();
 
-  return <EmotionalTreasureBoxView data={etbData} />;
+  return <EmotionalTreasureBoxPage data={etbData} />;
 }

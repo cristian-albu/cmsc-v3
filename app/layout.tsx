@@ -6,8 +6,9 @@ import { GdprContextProvider } from "@/lib/contexts/GdprContext";
 import { WindowContextProvider } from "@/lib/contexts/WindowContext";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import GlobalDonateSection from "./(home)/views/GlobalDonateSection";
 import { PageTransition } from "@/components";
+import GdprComponent from "@/components/gdpr";
+import GlobalDonateSection from "@/app/_views/global/GlobalDonateSection";
 
 const crimsonText = Crimson_Text({ variable: "--font-crimsonText", subsets: ["latin"], weight: ["400", "700"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
               <Navbar />
               <PageTransition>{children}</PageTransition>
               <GlobalDonateSection />
+              <GdprComponent />
               <Footer />
             </LangContextProvider>
           </GdprContextProvider>

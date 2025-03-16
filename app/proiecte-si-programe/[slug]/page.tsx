@@ -1,14 +1,7 @@
-import ProjectTemplateView from "../views/ProjectTemplateView";
-import { T_ProjectsRequest } from "../page";
-import getProjectData, { T_ProjectRequest } from "../data/queries/getProjectData";
-import getProjectsSlugs from "../data/queries/getProjectSlugs";
 import { T_Params } from "@/lib/types";
-import { notFound } from "next/navigation";
+import { getProjectData, getProjectsSlugs, ProjectsTemplatePage } from "@/app/_views/projects";
 
-export type T_ProjectPageData = {
-  project: T_ProjectRequest | null;
-  related: T_ProjectsRequest | null;
-};
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const slugs = await getProjectsSlugs();
@@ -27,5 +20,5 @@ export default async function Page({ params }: T_Params) {
 
   console.log(data);
 
-  return <ProjectTemplateView project={data.project} related={data.related} />;
+  return <ProjectsTemplatePage project={data.project} related={data.related} />;
 }

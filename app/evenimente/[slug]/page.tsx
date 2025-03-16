@@ -1,11 +1,16 @@
-import DynamicEventView, { T_EventData, T_EventsData, T_EventsSlugData } from "@/app/evenimente/views/DynamicEvent";
 import client from "@/lib/client";
-
-import { E_COLLECTIONS } from "@/lib/utils";
 import { T_Params } from "@/lib/types";
+import { E_COLLECTIONS } from "@/lib/utils";
+import {
+  EventsTemplatePage,
+  GET_EVENTS_SLUGS,
+  GET_EVENT_BY_SLUG,
+  GET_RELATED_EVENTS,
+  T_EventData,
+  T_EventsData,
+  T_EventsSlugData,
+} from "@/app/_views/events";
 import { notFound } from "next/navigation";
-import React from "react";
-import { GET_EVENT_BY_SLUG, GET_EVENTS_SLUGS, GET_RELATED_EVENTS } from "./queries";
 
 export async function generateStaticParams() {
   const events = await client.request<T_EventsSlugData>(GET_EVENTS_SLUGS);
@@ -25,7 +30,7 @@ export default async function Page({ params }: T_Params) {
   }
 
   return (
-    <DynamicEventView
+    <EventsTemplatePage
       currEvent={currEvent[E_COLLECTIONS.EVENTS].items[0]}
       relatedEvents={relatedEvents[E_COLLECTIONS.EVENTS].items}
     />

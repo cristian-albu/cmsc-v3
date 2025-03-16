@@ -1,12 +1,18 @@
 "use client";
-import React, { createContext, useContext, useState, useMemo, FC, ReactNode } from "react";
+import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from "react";
+
+export enum E_GdprNames {
+  essential = "essential",
+  preferences = "preferences",
+  analytics = "analytics",
+  advertisement = "advertisement",
+}
 
 export type T_GdprState = {
-  essential: boolean;
-  functional: boolean;
-  analytics: boolean;
-  advertisement: boolean;
-  third_party: boolean;
+  [E_GdprNames.essential]: boolean;
+  [E_GdprNames.preferences]: boolean;
+  [E_GdprNames.analytics]: boolean;
+  [E_GdprNames.advertisement]: boolean;
 };
 
 export type T_GdprContextValue = {
@@ -29,12 +35,11 @@ export const useGdprContext = (): T_GdprContextValue => {
 };
 
 export const GdprContextProvider: FC<T_GdprContextProviderProps> = ({ children }) => {
-  const [gdprState, updateGdprState] = useState({
-    essential: true,
-    functional: false,
-    analytics: false,
-    advertisement: false,
-    third_party: false,
+  const [gdprState, updateGdprState] = useState<T_GdprState>({
+    [E_GdprNames.essential]: true,
+    [E_GdprNames.preferences]: false,
+    [E_GdprNames.analytics]: false,
+    [E_GdprNames.advertisement]: false,
   });
 
   const value = useMemo(

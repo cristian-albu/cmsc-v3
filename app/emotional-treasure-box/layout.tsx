@@ -1,5 +1,4 @@
-import ETBFooterSection from "./views/ETBFooterSection";
-import ETBHeader from "./views/ETBHeader";
+import { Header, FooterSection } from "@/app/_views/emotional-treasure-box";
 
 export default function Layout({
   children,
@@ -8,9 +7,9 @@ export default function Layout({
 }>) {
   return (
     <>
-      <ETBHeader />
+      <Header />
       {children}
-      <ETBFooterSection />
+      <FooterSection />
     </>
   );
 }
