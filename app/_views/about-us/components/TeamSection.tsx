@@ -24,7 +24,7 @@ const TeamSection: FC<T_TeamSection> = ({ team }) => {
         </Typography>
         <Line />
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
           {!Array.isArray(teamData) || teamData.length === 0 ? (
             <div>{ERROR_MESSAGES[langState].empty}</div>
           ) : (

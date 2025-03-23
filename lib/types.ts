@@ -6,6 +6,18 @@ import {
   T_ETB_LocalizedNews,
 } from "@/app/_views/emotional-treasure-box/queries/utils";
 import { E_COLLECTIONS } from "./utils";
+import { E_LANG } from "./localization";
+
+export type T_RequestError = {
+  [E_LANG.EN]: string;
+  [E_LANG.RO]: string;
+  status: number;
+};
+
+export type T_Request<T> = {
+  data: T | null;
+  error: T_RequestError | null;
+};
 
 export type T_Params = { params: Promise<{ slug: string }> };
 

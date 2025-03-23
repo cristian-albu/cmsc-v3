@@ -24,7 +24,7 @@ const CouncilSection: FC<T_CouncilSection> = ({ council }) => {
         </Typography>
         <Line />
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-5">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
           {!Array.isArray(councilData) || councilData.length === 0 ? (
             <div>{ERROR_MESSAGES[langState].empty}</div>
           ) : (

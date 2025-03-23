@@ -1,3 +1,5 @@
+import { defaultMessages, E_GdprNames, useGdprContext } from "@/lib/contexts/GdprContext";
+import { useLangContext } from "@/lib/contexts/LangContext";
 import { FC } from "react";
 
 type T_Video = {
@@ -10,23 +12,32 @@ const Placeholder = () => {
 };
 
 export const Video: FC<T_Video> = ({ source, embed = false }) => {
+  const { langState } = useLangContext();
+  const { gdprState } = useGdprContext();
+
   if (source) {
     if (embed) {
       return (
-        <div className="relative pb-[56.25%] pt-[25px] h-0">
-          <iframe
-            src={source}
-            style={{
-              border: "none",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-            }}
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          />
+        <div className="relative pb-[56.25%] pt-[25px] h-0 ">
+          {gdprState[E_GdprNames.preferences] ? (
+            <iframe
+              src={source}
+              style={{
+                border: "none",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            />
+          ) : (
+            <p className="bg-gray-200 flex text-center justify-center items-center p-10 rounded-lg">
+              ❗{defaultMessages[E_GdprNames.preferences][langState]}
+            </p>
+          )}
         </div>
       );
     }

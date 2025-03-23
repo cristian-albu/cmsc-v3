@@ -58,19 +58,21 @@ const ProjectsTemplatePage: FC<T_ProjectPageData> = ({ project, related }) => {
       <Section bg="gray" wave="top" aria-label="decorative" role="div">
         <></>
       </Section>
-      <CompoundView
-        sectionProps={{ bg: "gray" }}
-        main={<Markdown content={currProject.content} />}
-        aside={
-          <>
-            <Typography level={3} heading={3}>
-              {relatedProjectsData[langState]}
-            </Typography>
-            <Line />
-            <ProjectsList projects={relatedProjects} />
-          </>
-        }
-      />
+      {currProject.content && (
+        <CompoundView
+          sectionProps={{ bg: "gray" }}
+          main={<Markdown content={currProject.content} />}
+          aside={
+            <>
+              <Typography level={3} heading={3}>
+                {relatedProjectsData[langState]}
+              </Typography>
+              <Line />
+              <ProjectsList projects={relatedProjects} />
+            </>
+          }
+        />
+      )}
     </>
   );
 };

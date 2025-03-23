@@ -6,11 +6,12 @@ import {
   GET_EVENTS_SLUGS,
   GET_EVENT_BY_SLUG,
   GET_RELATED_EVENTS,
-  T_EventData,
-  T_EventsData,
+  T_EventRequest,
+  T_EventsRequest,
   T_EventsSlugData,
 } from "@/app/_views/events";
 import { notFound } from "next/navigation";
+import requestData from "@/lib/requestData";
 
 export async function generateStaticParams() {
   const events = await client.request<T_EventsSlugData>(GET_EVENTS_SLUGS);
@@ -18,21 +19,24 @@ export async function generateStaticParams() {
   return events[E_COLLECTIONS.EVENTS].items.map(({ slug }) => ({ slug }));
 }
 
+export const metadata = {
+  title: "Evenimente",
+  description:
+    "Evenimente dedicate egalității de gen și combaterii violenței de gen, reunind organizații, experți și comunități pentru advocacy, formare și sprijin. Activitățile includ sesiuni de instruire, dezbateri de politici publice, mentorat feminist și inițiative pentru dezvoltare rurală, contribuind la consolidarea drepturilor femeilor și promovarea unei societăți mai echitabile.",
+};
+
 export default async function Page({ params }: T_Params) {
   const currSlug = (await params).slug;
-  const [currEvent, relatedEvents] = await Promise.all([
-    client.request<T_EventData>(GET_EVENT_BY_SLUG, { slug: currSlug }),
-    client.request<T_EventsData>(GET_RELATED_EVENTS, { slug: currSlug }),
-  ]);
+  const data = await requestData(() =>
+    Promise.all([
+      client.request<T_EventRequest>(GET_EVENT_BY_SLUG, { slug: currSlug }),
+      client.request<T_EventsRequest>(GET_RELATED_EVENTS, { slug: currSlug }),
+    ])
+  );
 
-  if (!currEvent) {
+  if (!currSlug) {
     notFound();
   }
 
-  return (
-    <EventsTemplatePage
-      currEvent={currEvent[E_COLLECTIONS.EVENTS].items[0]}
-      relatedEvents={relatedEvents[E_COLLECTIONS.EVENTS].items}
-    />
-  );
+  return <EventsTemplatePage eventsData={data} />;
 }

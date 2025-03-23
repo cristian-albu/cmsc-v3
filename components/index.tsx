@@ -11,6 +11,8 @@ import Tooltip from "./tooltip";
 import CompoundView from "./compund-view";
 import PageTransition from "./page-transition";
 import { Video } from "./video";
+import Loading from "./loading";
+import ErrorMessage from "./error-message";
 
 export {
   Button,
@@ -26,4 +28,6 @@ export {
   CompoundView,
   PageTransition,
   Video,
+  Loading,
+  ErrorMessage,
 };

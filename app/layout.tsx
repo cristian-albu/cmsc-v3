@@ -9,6 +9,7 @@ import Footer from "@/components/footer";
 import { PageTransition } from "@/components";
 import GdprComponent from "@/components/gdpr";
 import GlobalDonateSection from "@/app/_views/global/GlobalDonateSection";
+import Scripts from "@/components/scripts";
 
 const crimsonText = Crimson_Text({ variable: "--font-crimsonText", subsets: ["latin"], weight: ["400", "700"] });
 
@@ -31,8 +32,9 @@ export default function RootLayout({
               <Navbar />
               <PageTransition>{children}</PageTransition>
               <GlobalDonateSection />
-              <GdprComponent />
               <Footer />
+              <GdprComponent />
+              <Scripts />
             </LangContextProvider>
           </GdprContextProvider>
         </WindowContextProvider>

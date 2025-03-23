@@ -1,6 +1,5 @@
 import type {
-  T_EventData,
-  T_EventsData,
+  T_EventRequest,
   T_EventsRequest,
   T_EventsSection,
   T_EventsSlugData,
@@ -25,12 +24,4 @@ export {
   GET_RELATED_EVENTS,
 };
 
-export type {
-  T_EventData,
-  T_EventsData,
-  T_EventsRequest,
-  T_EventsSection,
-  T_EventsSlugData,
-  T_EventsTemplateView,
-  T_EventsView,
-};
+export type { T_EventRequest, T_EventsRequest, T_EventsSection, T_EventsSlugData, T_EventsTemplateView, T_EventsView };

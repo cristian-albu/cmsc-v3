@@ -5,11 +5,11 @@ export type T_EventsSlugData = {
   [E_COLLECTIONS.EVENTS]: { items: { slug: string }[] };
 };
 
-export type T_EventData = {
+export type T_EventRequest = {
   [E_COLLECTIONS.EVENTS]: { items: T_ExtendedLocalizedEvents[] };
 };
 
-export type T_EventsData = {
+export type T_EventsRequest = {
   [E_COLLECTIONS.EVENTS]: { items: T_BaseLocalizedEvents[] };
 };
 
@@ -18,14 +18,11 @@ export type T_EventsTemplateView = {
   relatedEvents: T_BaseLocalizedEvents[];
 };
 
-export type T_EventsRequest = {
-  [E_COLLECTIONS.EVENTS]: { items: T_BaseLocalizedEvents[] };
-};
-
 export type T_EventsView = {
   eventsData: T_EventsRequest;
 };
 
 export type T_EventsSection = {
   events: T_EventsRequest | null;
+  numberOfEvents?: number;
 };

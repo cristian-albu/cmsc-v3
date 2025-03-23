@@ -26,7 +26,7 @@ const ProjectsSection: FC<T_ProjectsSection> = ({ projects }) => {
         <Line />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="w-full">
+          <div className="w-full flex flex-col items-start">
             <Typography className="mb-5">{description}</Typography>
             <Typography level={3} heading={3}>
               {listTitle}

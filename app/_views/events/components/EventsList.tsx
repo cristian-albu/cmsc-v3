@@ -1,17 +1,25 @@
+"use client";
 import { Card, Typography } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import useLocalizedData from "@/lib/hooks/useLocalizedData";
 import { ERROR_MESSAGES } from "@/lib/info";
+import { E_LANG } from "@/lib/localization";
 import { formatLocalizedDate } from "@/lib/localization/formatLocalizedDate";
 import { E_PATHS } from "@/lib/paths";
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { T_BaseLocalizedEvents } from "../queries/utils";
 
 const EventsList: FC<{ events: T_BaseLocalizedEvents[] | undefined }> = ({ events }) => {
   const { langState } = useLangContext();
-  const data = useLocalizedData(events);
+  const eventsData = useLocalizedData(events);
+  const data = useMemo(() => {
+    return {
+      [E_LANG.EN]: eventsData[E_LANG.EN].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+      [E_LANG.RO]: eventsData[E_LANG.RO].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    };
+  }, [events]);
 
-  if (!data[langState] || !Array.isArray(data[langState]) || data[langState].length === 0) {
+  if (data[langState].length === 0) {
     return <Typography>{ERROR_MESSAGES[langState].empty}</Typography>;
   }
 

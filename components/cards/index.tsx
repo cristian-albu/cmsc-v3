@@ -6,14 +6,16 @@ import Card2 from "./Card2";
 import Card3 from "./Card3";
 
 const Card: FC<T_Card> = ({ variation = 1, link, href, children, ...rest }) => {
+  const attributes = { ...rest, thumbnail: rest.thumbnail || "/placeholder_image.jpg" };
+
   const getCardComponent = () => {
     switch (variation) {
       case 1:
-        return <Card1 {...rest}>{children}</Card1>;
+        return <Card1 {...attributes}>{children}</Card1>;
       case 2:
-        return <Card2 {...rest}>{children}</Card2>;
+        return <Card2 {...attributes}>{children}</Card2>;
       case 3:
-        return <Card3 {...rest}>{children}</Card3>;
+        return <Card3 {...attributes}>{children}</Card3>;
       default:
         return null;
     }

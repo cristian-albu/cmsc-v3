@@ -1,6 +1,6 @@
 import { FC, JSX, ReactNode } from "react";
 
-type T_WaveType = "bottom" | "top" | "bottomDark";
+type T_WaveType = "bottom" | "top" | "bottomDark" | "tip";
 type T_Bg = "color" | "light" | "dark" | "gray";
 
 export type T_SectionProps = {
@@ -9,7 +9,7 @@ export type T_SectionProps = {
 } & JSX.IntrinsicElements["section"];
 
 type T_Section = {
-  children: ReactNode;
+  children?: ReactNode;
 } & T_SectionProps;
 
 const colorClasses: Record<T_Bg, string> = {
@@ -24,6 +24,7 @@ const waveClasses: Record<T_WaveType, string> = {
   bottomDark:
     "relative bottom-[-2px] inverse bg-[url('/waves/wave_bottom_dark.svg')] bg-repeat-x bg-bottom bg-contain h-[8rem]",
   top: "relative top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
+  tip: "absolute z-[0] top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
 };
 
 export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }) => {
@@ -35,7 +36,9 @@ export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }
         ${bg === "color" ? colorClasses.color : ""}
         ${bg === "dark" ? colorClasses.dark : ""}
         ${bg === "light" ? colorClasses.light : ""}
-        ${bg === "gray" ? colorClasses.gray : ""} ${className || ""}`}
+        ${bg === "gray" ? colorClasses.gray : ""} ${className || ""}`
+        .trim()
+        .replace(/\s+/g, " ")}
       {...attributes}
     >
       <div></div>
@@ -44,7 +47,7 @@ export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }
         <div
           className={`w-[102vw] left-[-1vw] ${wave === "bottom" ? waveClasses.bottom : ""}${
             wave === "bottomDark" ? waveClasses.bottomDark : ""
-          }${wave === "top" ? waveClasses.top : ""}
+          }${wave === "top" ? waveClasses.top : ""}${wave === "tip" ? waveClasses.tip : ""}
         `}
         />
       )}

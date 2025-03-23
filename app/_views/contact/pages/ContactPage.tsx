@@ -122,11 +122,12 @@ const ContactPage: FC = () => {
               <TextInput name={E_FORM_NAMES.email}>{form.email}*</TextInput>
               <Textarea name={E_FORM_NAMES.message}>{form.message}*</Textarea>
               <Checkbox name={E_FORM_NAMES.privacy_agreement}>
-                {form.privacy.description}
-                <Link href={E_PATHS.PRIVACY} className="text-purple">
-                  {form.privacy.policyText}
-                </Link>
-                *
+                <div className="flex flex-wrap gap-x-2">
+                  <span>{form.privacy.description}</span>
+                  <Link href={E_PATHS.PRIVACY} className="text-purple">
+                    {form.privacy.policyText}*
+                  </Link>
+                </div>
               </Checkbox>
               <Button disabled={isLoading} type="submit">
                 {isLoading ? <span className="animate-spin">⏳</span> : <span>📨</span>}

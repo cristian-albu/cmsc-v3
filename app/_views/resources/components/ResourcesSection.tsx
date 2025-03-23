@@ -4,9 +4,9 @@ import { FC } from "react";
 import useLocalizedData from "@/lib/hooks/useLocalizedData";
 import { ERROR_MESSAGES } from "@/lib/info";
 import { E_PATHS } from "@/lib/paths";
-import { home_resourcesData } from "@/app/_views/home/static";
 import Link from "next/link";
 import { T_ResourcesSection } from "../types";
+import { resourcesData } from "../constants";
 
 const ResourcesSection: FC<T_ResourcesSection> = ({ resources }) => {
   const { langState } = useLangContext();
@@ -15,7 +15,7 @@ const ResourcesSection: FC<T_ResourcesSection> = ({ resources }) => {
   const {
     meta: { buttonLink },
     [langState]: { heading, description, button },
-  } = home_resourcesData;
+  } = resourcesData;
 
   return (
     <Section bg="color">

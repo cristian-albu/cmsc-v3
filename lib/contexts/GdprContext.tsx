@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from "react";
+import { E_LANG } from "../localization";
 
 export enum E_GdprNames {
   essential = "essential",
@@ -22,6 +23,18 @@ export type T_GdprContextValue = {
 
 export type T_GdprContextProviderProps = {
   children: ReactNode;
+};
+
+export const defaultMessages = {
+  [E_GdprNames.essential]: { [E_LANG.EN]: "", [E_LANG.RO]: "" },
+  [E_GdprNames.preferences]: {
+    [E_LANG.EN]:
+      "You need to enable 'preferences' cookies to be able to see this. You can modify them with the button 🍪 on the bottom left.",
+    [E_LANG.RO]:
+      "Trebuie să activați cookie-urile pentru 'preferințe' pentru a putea vedea acest conținut. Puteți să le modificați cu butonul 🍪 din stânga jos.",
+  },
+  [E_GdprNames.analytics]: { [E_LANG.EN]: "", [E_LANG.RO]: "" },
+  [E_GdprNames.advertisement]: { [E_LANG.EN]: "", [E_LANG.RO]: "" },
 };
 
 const GdprContext = createContext<null | T_GdprContextValue>(null);
