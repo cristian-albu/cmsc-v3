@@ -5,8 +5,6 @@ import React, { FC } from "react";
 import { T_PartnersRequest, T_TeamRequest } from "../types";
 import { ErrorMessage, Section, Typography, Wrapper } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
-import useLocalizedData from "@/lib/hooks/useLocalizedData";
-import { E_COLLECTIONS } from "@/lib/utils";
 import TeamSection from "../components/TeamSection";
 import PartnersSection from "../components/PartnersSection";
 import CouncilSection from "../components/CouncilSection";
