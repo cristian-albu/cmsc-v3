@@ -10,8 +10,14 @@ const Scripts = () => {
     <>
       {gdprState[E_GdprNames.analytics] && gaId && (
         <>
-          <Script async strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
           <Script
+            id="gaHead"
+            async
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          />
+          <Script
+            id="gaBody"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
