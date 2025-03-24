@@ -23,7 +23,7 @@ const GallerySection: FC<T_EtbGallerySection> = ({ gallery }) => {
         </Typography>
         <Line />
 
-        <div className="w-full grid grid-cols-2 md:grid-cols-3">
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-5">
           {!Array.isArray(data[langState]) || data[langState].length === 0 ? (
             <div>{ERROR_MESSAGES[langState].empty}</div>
           ) : (

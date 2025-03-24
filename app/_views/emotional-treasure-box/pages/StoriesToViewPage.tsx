@@ -7,22 +7,18 @@ import Link from "next/link";
 import { E_PATHS } from "@/lib/paths";
 import { backToEtb } from "../static";
 
-const TEMP_DATA = [
-  {
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-  },
-  {
-    title: "Sed do eiusmod tempor incididunt ut",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-  },
-  {
-    title: "Ut enim ad minim veniam",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-  },
+const toViewData = [
+  "https://www.youtube-nocookie.com/embed/V3V3YZBc3W0",
+  "https://www.youtube-nocookie.com/embed/XISwUJi50Tc",
+  "https://www.youtube-nocookie.com/embed/trA9DP4ohr0",
+  "https://www.youtube-nocookie.com/embed/agNAuS_Tz2g",
+  "https://www.youtube-nocookie.com/embed/htZb8OcYMUQ",
+  "https://www.youtube-nocookie.com/embed/-dSFh_tFYrY",
+  "https://www.youtube-nocookie.com/embed/gW_f5uIBEW4",
+  "https://www.youtube-nocookie.com/embed/MJHKrcQ-3fM",
+  "https://www.youtube-nocookie.com/embed/_omOZxKVD6o",
+  "https://www.youtube-nocookie.com/embed/gj4WGWRYbZE",
+  "https://www.youtube-nocookie.com/embed/QdVARcVvP8c",
 ];
 
 const StoriesToViewPage: FC = () => {
@@ -44,15 +40,11 @@ const StoriesToViewPage: FC = () => {
           </Typography>
         </div>
 
-        {TEMP_DATA.map((item) => (
-          <div key={item.title} className="w-full flex flex-col">
-            <Typography heading={3} level={2}>
-              {item.title}
-            </Typography>
-            <Typography>{item.description}</Typography>
-            <Video />
-          </div>
-        ))}
+        <div className="w-full flex flex-col gap-10">
+          {toViewData.map((item) => (
+            <Video key={item} source={item} embed />
+          ))}
+        </div>
       </Wrapper>
     </Section>
   );

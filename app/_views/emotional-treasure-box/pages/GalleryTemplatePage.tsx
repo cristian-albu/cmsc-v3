@@ -34,7 +34,7 @@ const GalleryTemplatePage: FC<T_GalleryTemplateView> = ({ data }) => {
             <Typography heading={1} level={1}>
               {localizedData.galleryName}
             </Typography>
-            <Typography>{localizedData.description}</Typography>
+            {localizedData.description && <Typography>{localizedData.description}</Typography>}
             <Line />
           </div>
         </Wrapper>
@@ -43,7 +43,7 @@ const GalleryTemplatePage: FC<T_GalleryTemplateView> = ({ data }) => {
         <Wrapper padding>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="w-full flex flex-col gap-5">
-              {imgsLeft.map((image) => {
+              {imgsLeft?.map((image) => {
                 return (
                   <div key={image.title}>
                     <Image src={image.url} alt="" width={500} height={500} className="rounded-md shadow-lg" />
@@ -52,7 +52,7 @@ const GalleryTemplatePage: FC<T_GalleryTemplateView> = ({ data }) => {
               })}
             </div>
             <div className="w-full flex flex-col gap-5">
-              {imgsRight.map((image) => {
+              {imgsRight?.map((image) => {
                 return (
                   <div key={image.title}>
                     <Image src={image.url} alt="" width={500} height={500} className="rounded-md shadow-lg" />
@@ -67,7 +67,7 @@ const GalleryTemplatePage: FC<T_GalleryTemplateView> = ({ data }) => {
       <Section>
         <Wrapper padding>
           <div className="w-full flex flex-col gap-10">
-            {localizedData.videoLinks.map((videoUrl, i) => (
+            {localizedData?.videoLinks?.map((videoUrl, i) => (
               <div key={i.toString()} className="w-full">
                 <a
                   style={{ display: "block", position: "relative", overflow: "hidden", width: "100%", paddingTop: "56.25%" }}

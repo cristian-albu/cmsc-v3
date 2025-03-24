@@ -20,7 +20,7 @@ const FooterSection: FC = () => {
             {disclaimer}
           </Typography>
           <Line />
-          <Typography className="mb-5">
+          <Typography className="mb-5 flex flex-wrap">
             {info1.text}{" "}
             <Link href={info1.link1.href} target="blank" className="underline">
               {info1.link1.text}
@@ -31,7 +31,7 @@ const FooterSection: FC = () => {
             </Link>
           </Typography>
 
-          <Typography>
+          <Typography className="flex flex-wrap">
             {info2.text}{" "}
             <Link href={info2.link1.href} target="blank" className="underline">
               {info2.link1.text}

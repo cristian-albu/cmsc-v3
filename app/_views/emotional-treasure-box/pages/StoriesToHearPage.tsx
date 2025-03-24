@@ -1,16 +1,14 @@
 "use client";
-import { Section, Typography, Wrapper } from "@/components";
+import { Section, Typography, Video, Wrapper } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
-import useLocalizedData from "@/lib/hooks/useLocalizedData";
 import { E_PATHS } from "@/lib/paths";
 import { E_COLLECTIONS } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import React, { FC, useMemo } from "react";
 import { backToEtb } from "../static";
 import { storiesToHearData } from "../static/stories";
 import { T_AudiobookRequest } from "../types";
+import { T_ETB_BaseAudiobooks } from "../queries/utils";
 
 const StoriesToHearPage: FC<{ data: T_AudiobookRequest }> = ({ data }) => {
   const { langState } = useLangContext();
@@ -19,7 +17,26 @@ const StoriesToHearPage: FC<{ data: T_AudiobookRequest }> = ({ data }) => {
     [langState]: { heading, description, titles },
   } = storiesToHearData;
 
-  const audiobooks = useLocalizedData(data[E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS].items);
+  const audiobooks = useMemo(() => {
+    return data[E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS].items
+      .map((item, index) => {
+        const videoSrc = item.link.split("=").slice(-1)[0];
+        index === 11 && console.log(videoSrc);
+        return { title: item.title, link: `https://www.youtube-nocookie.com/embed/${videoSrc}` };
+      })
+      .sort((a, b) => {
+        // Not proud of this sorting but time pressure
+        // Thank contentful for not having order by createdAt but only for publishedAt sys variable. 1 hour wasted here
+        const aChapterNo = a.title.split(" ").slice(-1)[0];
+        const bChapterNo = b.title.split(" ").slice(-1)[0];
+
+        if (Number(aChapterNo) > Number(bChapterNo)) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+  }, []);
 
   return (
     <Section>
@@ -35,33 +52,11 @@ const StoriesToHearPage: FC<{ data: T_AudiobookRequest }> = ({ data }) => {
         </div>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
-          {audiobooks[langState].map((item) => (
-            <Link
-              key={item.title}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full relative bg-white rounded-md shadow-xl overflow-hidden transition-all hover:scale-[1.03] active:scale-[0.98]"
-            >
-              <Image width={400} height={400} alt="" src={item.thumbnail.url} />
-              <div className="w-full p-5">
-                <Typography heading={3} level={3}>
-                  {titles.title}: {item.title}
-                </Typography>
-                <Typography>
-                  {titles.author}: {item.author}
-                </Typography>
-                <Typography>
-                  {titles.editor}: {item.editor}
-                </Typography>
-                <Typography>
-                  {titles.reading}: {item.reading}
-                </Typography>
-                <div className="absolute bottom-0 right-0 p-5">
-                  <FaExternalLinkAlt />
-                </div>
-              </div>
-            </Link>
+          {audiobooks.map((item: T_ETB_BaseAudiobooks) => (
+            <div key={item.title} className="w-full flex flex-col">
+              <Typography>{item.title}</Typography>
+              <Video source={item.link} embed />
+            </div>
           ))}
         </div>
       </Wrapper>

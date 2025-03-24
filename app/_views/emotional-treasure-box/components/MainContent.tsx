@@ -1,4 +1,4 @@
-import { Button, Line, Tooltip, Typography, Video } from "@/components";
+import { Button, Line, Typography, Video } from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import Link from "next/link";
 import { FC } from "react";
@@ -24,12 +24,10 @@ const MainContent: FC = () => {
 
       <div className="text-sm flex flex-wrap gap-3 mb-5">
         {headerLinks.map((item) => (
-          <Tooltip key={item.text} text={item.description}>
-            <Button aria-label={item.description} href={item.resource}>
-              {item.icon}
-              {item.text}
-            </Button>
-          </Tooltip>
+          <Button key={item.text} aria-label={item.description} href={item.resource}>
+            {item.icon}
+            {item.text}
+          </Button>
         ))}
       </div>
 
@@ -41,7 +39,7 @@ const MainContent: FC = () => {
       <Typography>{p1}</Typography>
 
       <Video
-        source="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FWhatHappenedToTheHeart%2Fvideos%2F1758381074911301%2F&show_text=false&width=560&t=0"
+        source="https://www.youtube.com/embed?v=XISwUJi50Tc&list=PLjfYJh0s_-qSGaXJQHUcMx1YnH7i0i-Js&ab_channel=WhatHappenedToTheHeart"
         embed={true}
       />
 
@@ -49,12 +47,18 @@ const MainContent: FC = () => {
         {t2}
       </Typography>
       <Typography>{p2}</Typography>
-      <Video />
+      <Video
+        source="https://www.youtube.com/embed?v=1fn_76mwAig&list=PLjfYJh0s_-qSC46sReqOOJI90dXu6OYAm&index=6&ab_channel=WhatHappenedToTheHeart"
+        embed
+      />
       <Typography level={2} heading={2}>
         {t3}
       </Typography>
       <Typography>{p3}</Typography>
-      <Video />
+      <Video
+        source="https://www.youtube.com/embed?v=2XAQEcfWaHk&list=PLjfYJh0s_-qSC46sReqOOJI90dXu6OYAm&index=3&t=4s&ab_channel=WhatHappenedToTheHeart"
+        embed
+      />
 
       <div className="">
         <Typography level={2} heading={2}>
