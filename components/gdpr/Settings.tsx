@@ -56,7 +56,6 @@ const Settings: FC<{
   };
 
   useEffect(() => {
-    console.log("render");
     setCheckedState(gdprState);
   }, [gdprState]);
 

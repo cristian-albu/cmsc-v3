@@ -14,14 +14,13 @@ const StoriesToHearPage: FC<{ data: T_AudiobookRequest }> = ({ data }) => {
   const { langState } = useLangContext();
 
   const {
-    [langState]: { heading, description, titles },
+    [langState]: { heading, description },
   } = storiesToHearData;
 
   const audiobooks = useMemo(() => {
     return data[E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS].items
-      .map((item, index) => {
+      .map((item) => {
         const videoSrc = item.link.split("=").slice(-1)[0];
-        index === 11 && console.log(videoSrc);
         return { title: item.title, link: `https://www.youtube-nocookie.com/embed/${videoSrc}` };
       })
       .sort((a, b) => {

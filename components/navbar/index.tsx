@@ -66,7 +66,6 @@ const Navbar: FC = () => {
       !navRef.current?.contains(clickTargetState);
 
     if (isOutsideMenuClick) {
-      console.log(clickTargetState);
       setIsMenuOpen(false);
     }
   }, [clickTargetState]);
