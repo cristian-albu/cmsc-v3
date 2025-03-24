@@ -1,7 +1,7 @@
 import {
+  T_ETB_BaseAudiobooks,
   T_ETB_ExtendedLocalizedArticle,
   T_ETB_LocalizedArticle,
-  T_ETB_LocalizedAudiobooks,
   T_ETB_LocalizedGallery,
   T_ETB_LocalizedNews,
 } from "@/app/_views/emotional-treasure-box/queries/utils";
@@ -62,5 +62,5 @@ export type T_ArticleItem = {
 };
 
 export type T_AudiobookRequest = {
-  [E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS]: { items: T_ETB_LocalizedAudiobooks[] };
+  [E_COLLECTIONS.EMOTIONAL_TREASURE_BOX_AUDIOBOOKS]: { items: T_ETB_BaseAudiobooks[] };
 };
