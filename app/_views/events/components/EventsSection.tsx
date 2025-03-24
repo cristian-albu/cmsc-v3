@@ -33,9 +33,7 @@ const EventsSection: FC<T_EventsSection> = ({ events, numberOfEvents }) => {
         <Line />
         <div className={`w-full grid grid-cols-1 ${isEventsPage ? "md:grid-cols-1" : "md:grid-cols-2"} gap-3`}>
           <EventsList
-            events={
-              numberOfEvents && numberOfEvents < eventsData.length ? eventsData.slice(0, numberOfEvents || 2) : eventsData
-            }
+            events={numberOfEvents && numberOfEvents < eventsData.length ? eventsData.slice(0, numberOfEvents) : eventsData}
           />
         </div>
         {!isEventsPage && <Button href={buttonLink}>{button}</Button>}

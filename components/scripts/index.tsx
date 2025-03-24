@@ -10,15 +10,10 @@ const Scripts = () => {
     <>
       {gdprState[E_GdprNames.analytics] && gaId && (
         <>
-          <Script
-            id="gaHead"
-            async
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-          />
+          <Script id="gaHead" async type="module" src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
           <Script
             id="gaBody"
-            strategy="afterInteractive"
+            type="module"
             dangerouslySetInnerHTML={{
               __html: `
 window.dataLayer = window.dataLayer || [];

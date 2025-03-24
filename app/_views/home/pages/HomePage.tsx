@@ -15,7 +15,7 @@ const HomePage: FC<{ data: T_HomeData }> = ({ data }) => {
   return (
     <>
       <HeroSection />
-      <EventsSection events={data.events} />
+      <EventsSection events={data.events} numberOfEvents={2} />
       <PartnersSection partners={data.partners} />
       <ProjectsSection projects={data.projects} />
       <ResourcesSection resources={data.resources} />
