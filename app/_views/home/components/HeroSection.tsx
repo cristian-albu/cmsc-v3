@@ -1,6 +1,6 @@
 import { useLangContext } from "@/lib/contexts/LangContext";
 
-import { Button, Section, Typography, Wrapper } from "@/components";
+import { Section, Typography, Wrapper } from "@/components";
 import { FC } from "react";
 import { home_heroData } from "../static";
 import Image from "next/image";
@@ -9,8 +9,7 @@ const HeroSection: FC = () => {
   const { langState } = useLangContext();
 
   const {
-    meta: { buttonLink },
-    [langState]: { heading, description, button, specializedServices },
+    [langState]: { heading, description, specializedServices },
   } = home_heroData;
 
   return (
@@ -32,8 +31,6 @@ const HeroSection: FC = () => {
             <Typography className="text-shadow-lg" level={3}>
               {description}
             </Typography>
-
-            <Button href={buttonLink}>✉️ {button}</Button>
           </div>
         </div>
       </Wrapper>

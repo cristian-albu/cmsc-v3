@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import { E_LANG } from "../localization";
 
-const key = process.env.RESEND_API_KEY;
+const key = process.env?.RESEND_API_KEY;
 const fromEmail = "";
 const EMAIL_ERRORS = {
   missing_key: {
@@ -11,8 +11,10 @@ const EMAIL_ERRORS = {
     [E_LANG.RO]: "A apărut o eroare neașteptată. Vă rugăm încercați mai târziu",
   },
   service_error: {
-    [E_LANG.EN]: "There was an error with the email service. Please try again later",
-    [E_LANG.RO]: "A apărut o eroare cu serviciul de email. Vă rugăm încercați mai târziu",
+    [E_LANG.EN]:
+      "There was an error with the email service. Please try again later",
+    [E_LANG.RO]:
+      "A apărut o eroare cu serviciul de email. Vă rugăm încercați mai târziu",
   },
 };
 
