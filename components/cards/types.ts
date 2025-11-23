@@ -11,6 +11,6 @@ export type T_CardProps = {
 } & JSX.IntrinsicElements["div"];
 
 export type T_Card = {
-  variation?: 1 | 2 | 3;
+  variation?: 1 | 2 | 3 | 4;
 } & T_CardProps &
   ({ link?: false; href?: undefined } | T_LinkCard);

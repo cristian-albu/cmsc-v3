@@ -14,7 +14,6 @@ export const baseProject = {
   [E_LOCALIZED_PROJECT_FIELDS.SUMMARY]: "",
   startDate: "",
   endDate: "",
-  featured: true,
 };
 
 export const extendedProject = {

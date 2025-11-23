@@ -1,6 +1,14 @@
 "use client";
 
-import { CompoundView, Line, Markdown, Section, Typography, Wrapper } from "@/components";
+import {
+  Card,
+  CompoundView,
+  Line,
+  Markdown,
+  Section,
+  Typography,
+  Wrapper,
+} from "@/components";
 import { useLangContext } from "@/lib/contexts/LangContext";
 import useLocalizedData from "@/lib/hooks/useLocalizedData";
 import { E_LANG } from "@/lib/localization";
@@ -9,7 +17,6 @@ import { E_PATHS } from "@/lib/paths";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
-import ProjectsList from "../components/ProjectsList";
 import { T_ProjectPageData } from "../types";
 
 const backToProjects = {
@@ -24,8 +31,12 @@ const relatedProjectsData = {
 
 const ProjectsTemplatePage: FC<T_ProjectPageData> = ({ project, related }) => {
   const { langState } = useLangContext();
-  const projectData = useLocalizedData(project?.projectsProgramsCollection.items);
-  const relatedData = useLocalizedData(related?.projectsProgramsCollection.items);
+  const projectData = useLocalizedData(
+    project?.projectsProgramsCollection.items
+  );
+  const relatedData = useLocalizedData(
+    related?.projectsProgramsCollection.items
+  );
 
   const currProject = projectData[langState][0];
   const relatedProjects = relatedData[langState];
@@ -46,14 +57,32 @@ const ProjectsTemplatePage: FC<T_ProjectPageData> = ({ project, related }) => {
               {currProject.name}
             </Typography>
             <Line />
-            <div className="w-full flex">
-              <Typography className="capitalize">{formatLocalizedDate(currProject.startDate, langState)}</Typography>
-              {` - `}
-              <Typography className="capitalize">{formatLocalizedDate(currProject.endDate, langState)}</Typography>
-            </div>
+            {currProject.startDate && (
+              <div className="w-full flex">
+                <Typography className="capitalize">
+                  {formatLocalizedDate(currProject.startDate, langState)}
+                </Typography>
+                {currProject.endDate && (
+                  <>
+                    -
+                    <Typography className="capitalize">
+                      {formatLocalizedDate(currProject.endDate, langState)}
+                    </Typography>
+                  </>
+                )}
+              </div>
+            )}
           </>
         }
-        aside={<Image src={currProject.thumbnail.url} alt="" width={300} height={400} className="shadow-lg rounded-md" />}
+        aside={
+          <Image
+            src={currProject.thumbnail.url}
+            alt=""
+            width={300}
+            height={400}
+            className="shadow-lg rounded-md"
+          />
+        }
       />
       <Section bg="gray" wave="top" aria-label="decorative" role="div">
         <></>
@@ -68,7 +97,19 @@ const ProjectsTemplatePage: FC<T_ProjectPageData> = ({ project, related }) => {
                 {relatedProjectsData[langState]}
               </Typography>
               <Line />
-              <ProjectsList projects={relatedProjects} />
+              <div className="flex flex-col">
+                {relatedProjects.map((project) => (
+                  <Card
+                    variation={2}
+                    key={project.slug}
+                    link
+                    thumbnail={project.thumbnail.url}
+                    href={project.slug}
+                  >
+                    <Typography>{project.name}</Typography>
+                  </Card>
+                ))}
+              </div>
             </>
           }
         />

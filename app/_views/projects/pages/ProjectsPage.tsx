@@ -16,17 +16,8 @@ const ProjectsPage: FC<T_ProjectsViews> = ({ data }) => {
     [langState]: { heading, description },
   } = home_projectsData;
 
-  const isProjectAvailable = Array.isArray(projects[langState]) && projects[langState].length !== 0;
-  const projectSplitIndex = Math.round(projects[langState].length / 3);
-
-  const projectColumns =
-    projects[langState].length >= 3
-      ? [
-          projects[langState].slice(0, projectSplitIndex),
-          projects[langState].slice(projectSplitIndex, projectSplitIndex * 2),
-          projects[langState].slice(projectSplitIndex * 2),
-        ]
-      : [];
+  const isProjectAvailable =
+    Array.isArray(projects[langState]) && projects[langState].length !== 0;
 
   return (
     <>
@@ -44,16 +35,12 @@ const ProjectsPage: FC<T_ProjectsViews> = ({ data }) => {
       </Section>
       <Section bg="gray" wave="bottom">
         <Wrapper>
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="w-full flex flex-col">
             {!isProjectAvailable ? (
               <div>{ERROR_MESSAGES[langState].empty}</div>
             ) : (
               <>
-                {projectColumns.length > 0 ? (
-                  projectColumns.map((col, index) => <ProjectsList key={index.toString()} projects={col} />)
-                ) : (
-                  <ProjectsList projects={projects[langState]} />
-                )}
+                <ProjectsList projects={projects[langState]} />
               </>
             )}
           </div>

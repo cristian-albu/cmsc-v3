@@ -4,9 +4,13 @@ import { T_Card } from "./types";
 import Card1 from "./Card1";
 import Card2 from "./Card2";
 import Card3 from "./Card3";
+import Card4 from "./Card4";
 
 const Card: FC<T_Card> = ({ variation = 1, link, href, children, ...rest }) => {
-  const attributes = { ...rest, thumbnail: rest.thumbnail || "/placeholder_image.jpg" };
+  const attributes = {
+    ...rest,
+    thumbnail: rest.thumbnail || "/placeholder_image.jpg",
+  };
 
   const getCardComponent = () => {
     switch (variation) {
@@ -16,6 +20,8 @@ const Card: FC<T_Card> = ({ variation = 1, link, href, children, ...rest }) => {
         return <Card2 {...attributes}>{children}</Card2>;
       case 3:
         return <Card3 {...attributes}>{children}</Card3>;
+      case 4:
+        return <Card4 {...attributes}>{children}</Card4>;
       default:
         return null;
     }
