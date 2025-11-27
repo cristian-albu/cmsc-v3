@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${crimsonText.variable} antialiased pt-[120px]`}>
+      <body className={`${crimsonText.variable} antialiased pt-[60px]`}>
         <WindowContextProvider>
           <GdprContextProvider>
             <LangContextProvider>

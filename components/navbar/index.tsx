@@ -162,17 +162,17 @@ const Navbar: FC = () => {
             )}
           </button>
         </div>
-        <div className="w-full flex flex-wrap bg-white text-black px-3 py-1 shadow-lg">
-          <Typography className="w-full md:w-[40%]">
-            <MdOutlineLocalPhone className="text-lg text-pink" />
-            {greenPhone}
-          </Typography>
-          <Typography className="w-full md:w-[60%]">
-            <MdOutlineLocalPhone className="text-lg text-pink" />
-            {urgentPhone}
-          </Typography>
-        </div>
       </nav>
+      <div className="w-full flex flex-wrap bg-white text-black px-3 py-1 shadow-lg">
+        <Typography className="w-full md:w-[40%]">
+          <MdOutlineLocalPhone className="text-lg text-pink" />
+          {greenPhone}
+        </Typography>
+        <Typography className="w-full md:w-[60%]">
+          <MdOutlineLocalPhone className="text-lg text-pink" />
+          {urgentPhone}
+        </Typography>
+      </div>
     </>
   );
 };
