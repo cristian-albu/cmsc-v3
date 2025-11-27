@@ -11,7 +11,11 @@ import GdprComponent from "@/components/gdpr";
 import GlobalDonateSection from "@/app/_views/global/GlobalDonateSection";
 import Scripts from "@/components/scripts";
 
-const crimsonText = Crimson_Text({ variable: "--font-crimsonText", subsets: ["latin"], weight: ["400", "700"] });
+const crimsonText = Crimson_Text({
+  variable: "--font-crimsonText",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${crimsonText.variable} antialiased pt-[60px]`}>
+      <body className={`${crimsonText.variable} antialiased pt-[120px]`}>
         <WindowContextProvider>
           <GdprContextProvider>
             <LangContextProvider>

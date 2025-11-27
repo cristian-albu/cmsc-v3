@@ -121,6 +121,9 @@ export const home_assistanceData = {
       "Ne puteți suna gratuit la Tel. Verde: 0800.070.017 (accesibil doar în România)",
     urgentPhone:
       "Puteți apela la Telefonul de urgență: +40787.878.806, tarif normal pe telefon (apel vocal) și gratuit online pentru mesaje scrise sau vocale pe Telegram, WhatsApp și pentru mesaje scrise de tip SMS.",
+    qr: {
+      label: "Scanați codul ori apăsați butonul pentru a dona.",
+    },
     columns: [
       {
         img: "/assistance/gloria.jpeg",
@@ -173,6 +176,9 @@ export const home_assistanceData = {
       "You can call us for free at the Green Line: 0800.070.017 (accessible only in Romania).",
     urgentPhone:
       "You can call the Emergency Phone at +40787.878.806, at the normal phone rate (voice call), and it is free online for written or voice messages on Telegram, WhatsApp, and for written SMS messages.",
+    qr: {
+      label: "Scan the code or press the button to donate.",
+    },
     columns: [
       {
         img: "/assistance/gloria.jpeg",
