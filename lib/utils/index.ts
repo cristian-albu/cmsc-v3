@@ -1,5 +1,8 @@
 import { buildQueryFromDefault } from "./buildQueryFromDefault";
-import { enDataConverter, enDataListConverter } from "../localization/enDataConverter";
+import {
+  enDataConverter,
+  enDataListConverter,
+} from "../localization/enDataConverter";
 import { Document } from "@contentful/rich-text-types";
 
 export enum E_COLLECTIONS {
@@ -8,6 +11,7 @@ export enum E_COLLECTIONS {
   EVENTS = "eventsCollection",
   RESOURCES = "resourcesCollection",
   TEAM_MEMBERS = "teamMembersCollection",
+  SERVICES = "servicesCollection",
   EMOTIONAL_TREASURE_BOX_ARTICLES = "emotionalTreasureBoxArticlesCollection",
   EMOTIONAL_TREASURE_BOX_GALLERY = "emotionalTreasureBoxMediaGalleryCollection",
   EMOTIONAL_TREASURE_BOX_NEWS = "emotionalTreasureBoxNewsCollection",

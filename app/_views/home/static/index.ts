@@ -117,10 +117,8 @@ export const home_assistanceData = {
                   violenței împotriva femeilor – asistând anual aproximativ 150 de femei și copii ce se confruntă cu situații abuzive. 
                   Aceste servicii sunt oferite în mod gratuit, într-un cadru multidisciplinar de tip one stop shop (centru de justiție familiala). 
                   Pentru a asigura o continuitate în furnizarea acestor programe, avem nevoie de contribuția dumneavoastră.`,
-    greenPhone:
-      "Ne puteți suna gratuit la Tel. Verde: 0800.070.017 (accesibil doar în România)",
-    urgentPhone:
-      "Puteți apela la Telefonul de urgență: +40787.878.806, tarif normal pe telefon (apel vocal) și gratuit online pentru mesaje scrise sau vocale pe Telegram, WhatsApp și pentru mesaje scrise de tip SMS.",
+    greenPhone: "Ne puteți suna gratuit la Tel. Verde: 0800.070.017",
+    urgentPhone: "Telefonul de urgență: +40787.878.806, tarif normal",
     qr: {
       label: "Scanați codul ori apăsați butonul pentru a dona.",
     },
@@ -172,10 +170,8 @@ export const home_assistanceData = {
                 violence against women – supporting approximately 150 women and children each year who face abusive situations. 
                 These services are offered free of charge, within a multidisciplinary one-stop-shop framework (family justice center). 
                 To ensure continuity in providing these programs, we need your contribution.`,
-    greenPhone:
-      "You can call us for free at the Green Line: 0800.070.017 (accessible only in Romania).",
-    urgentPhone:
-      "You can call the Emergency Phone at +40787.878.806, at the normal phone rate (voice call), and it is free online for written or voice messages on Telegram, WhatsApp, and for written SMS messages.",
+    greenPhone: "You can call us for free at the Green Line: 0800.070.017 ",
+    urgentPhone: "Emergency Phone at +40787.878.806, at the normal phone rate",
     qr: {
       label: "Scan the code or press the button to donate.",
     },
@@ -187,7 +183,6 @@ export const home_assistanceData = {
         subHeading: "The Gloria Counseling Center provides:",
         bullets: [
           `Risk assessment and development of an immediate intervention plan – One-stop-shop office in an integrated space alongside the Iași Institute of Forensic Medicine`,
-          `Individual/group psychological counseling programs`,
           `Individual/group psychological counseling programs`,
           `Material support: crisis packages, transportation reimbursement, medical document fees, food packages`,
           `Assistance for obtaining financial compensation`,

@@ -13,7 +13,7 @@ import { home_assistanceData } from "@/app/_views/home/static";
 import Typography from "../typography";
 import { MdOutlineLocalPhone } from "react-icons/md";
 
-const RESPONSIVE_BREAKPOINT = 960;
+const RESPONSIVE_BREAKPOINT = 1024;
 
 const Navbar: FC = () => {
   const [homeData, ...navData] = navbarData;
@@ -111,7 +111,7 @@ const Navbar: FC = () => {
           <ul
             className={
               isMobileWidth
-                ? "absolute right-0 top-[60px] transition-all ease-in-out duration-300 flex flex-col bg-black p-5 rounded-bl-2xl shadow-lg"
+                ? "absolute right-0 top-[60px] transition-all ease-in-out duration-300 flex flex-col bg-black p-5 rounded-bl-2xl shadow-lg z-[99]"
                 : "flex w-full items-center gap-4 justify-end"
             }
             style={{
@@ -163,7 +163,7 @@ const Navbar: FC = () => {
           </button>
         </div>
       </nav>
-      <div className="w-full flex flex-wrap bg-white text-black px-3 py-1 shadow-lg">
+      <div className="w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-[98]">
         <Typography className="w-full md:w-[40%]">
           <MdOutlineLocalPhone className="text-lg text-pink" />
           {greenPhone}

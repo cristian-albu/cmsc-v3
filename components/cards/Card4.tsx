@@ -19,7 +19,9 @@ const Card4: FC<T_CardProps> = ({ thumbnail, children, ...rest }) => {
           className="rounded-md "
         />
       </div>
-      <div className={`w-full md:min-w-[70%] flex flex-col ${className}`}>
+      <div
+        className={`w-full md:min-w-[70%] flex flex-col gap-5 items-start ${className}`}
+      >
         {children}
       </div>
     </div>
