@@ -11,6 +11,10 @@ import GdprComponent from "@/components/gdpr";
 import GlobalDonateSection from "@/app/_views/global/GlobalDonateSection";
 import Scripts from "@/components/scripts";
 
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 const crimsonText = Crimson_Text({
   variable: "--font-crimsonText",
   subsets: ["latin"],
