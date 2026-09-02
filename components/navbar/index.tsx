@@ -12,8 +12,29 @@ import { handleArrows, handleTabs } from "./utils";
 import { home_assistanceData } from "@/app/_views/home/static";
 import Typography from "../typography";
 import { MdOutlineLocalPhone } from "react-icons/md";
+import { JUSTHER_PROJECT_PATHNAME } from "@/lib/constants";
 
 const RESPONSIVE_BREAKPOINT = 1024;
+
+export const ContactBar: FC<{ className?: string }> = ({ className }) => {
+  const { langState } = useLangContext();
+  const { greenPhone, urgentPhone } = home_assistanceData[langState];
+
+  return (
+    <div
+      className={`w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-98 ${className ? className : ""}`}
+    >
+      <Typography className="w-full md:w-[40%]">
+        <MdOutlineLocalPhone className="text-lg text-pink" />
+        {greenPhone}
+      </Typography>
+      <Typography className="w-full md:w-[60%]">
+        <MdOutlineLocalPhone className="text-lg text-pink" />
+        {urgentPhone}
+      </Typography>
+    </div>
+  );
+};
 
 const Navbar: FC = () => {
   const [homeData, ...navData] = navbarData;
@@ -27,8 +48,6 @@ const Navbar: FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const pathname = usePathname();
-
-  const { greenPhone, urgentPhone } = home_assistanceData[langState];
 
   const isMobileWidth = resizeState.width < RESPONSIVE_BREAKPOINT;
   const isMenuStyled = isMenuOpen || !isMobileWidth;
@@ -163,16 +182,8 @@ const Navbar: FC = () => {
           </button>
         </div>
       </nav>
-      <div className="w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-98">
-        <Typography className="w-full md:w-[40%]">
-          <MdOutlineLocalPhone className="text-lg text-pink" />
-          {greenPhone}
-        </Typography>
-        <Typography className="w-full md:w-[60%]">
-          <MdOutlineLocalPhone className="text-lg text-pink" />
-          {urgentPhone}
-        </Typography>
-      </div>
+
+      {pathname === JUSTHER_PROJECT_PATHNAME ? null : <ContactBar />}
     </>
   );
 };
