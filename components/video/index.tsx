@@ -8,7 +8,7 @@ type T_Video = {
 };
 
 const Placeholder = () => {
-  return <div className="w-full aspect-[16/9] bg-gray-200 flex justify-center items-center mb-5">Placeholder for video</div>;
+  return <div className="w-full aspect-16/9 bg-gray-200 flex justify-center items-center mb-5">Placeholder for video</div>;
 };
 
 export const Video: FC<T_Video> = ({ source, embed = false }) => {

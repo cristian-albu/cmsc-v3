@@ -11,10 +11,6 @@ import {
 } from "@/app/_views/emotional-treasure-box";
 import { notFound } from "next/navigation";
 
-// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateStaticParams() {
   const [gallery, articles] = await Promise.all([
     client.request<T_GallerySlugData>(GET_GALLERY_SLUGS),

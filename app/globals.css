@@ -1,9 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default;
+}
 
 :root {
   --background: #ffffff;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-darkPurple: #2c04a3;
+  --color-purple: #9425e8;
+  --color-pink: #c383f8;
+  --color-dark: #1a1a1a;
+  --color-grey: #d1d1d1;
 }
 
 body {

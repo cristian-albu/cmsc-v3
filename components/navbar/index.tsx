@@ -79,7 +79,7 @@ const Navbar: FC = () => {
     <>
       <nav
         ref={navRef}
-        className="max-w-[100vw] min-h-[60px] flex flex-col w-full fixed top-0 left-0 z-[99]"
+        className="max-w-[100vw] min-h-[60px] flex flex-col w-full fixed top-0 left-0 z-99"
         onKeyDown={handleKeyboard}
       >
         <div className="bg-black text-white flex w-full h-[60px] justify-between items-stretch">
@@ -101,7 +101,7 @@ const Navbar: FC = () => {
             <button
               aria-label="Open and close the menu"
               ref={menuBtnRef}
-              className="relative z-[99] p-3"
+              className="relative z-99 p-3"
               onClick={handleMenuClick}
             >
               <HiOutlineMenu className="text-2xl" />
@@ -111,7 +111,7 @@ const Navbar: FC = () => {
           <ul
             className={
               isMobileWidth
-                ? "absolute right-0 top-[60px] transition-all ease-in-out duration-300 flex flex-col bg-black p-5 rounded-bl-2xl shadow-lg z-[99]"
+                ? "absolute right-0 top-[60px] transition-all ease-in-out duration-300 flex flex-col bg-black p-5 rounded-bl-2xl shadow-lg z-99"
                 : "flex w-full items-center gap-4 justify-end"
             }
             style={{
@@ -163,7 +163,7 @@ const Navbar: FC = () => {
           </button>
         </div>
       </nav>
-      <div className="w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-[98]">
+      <div className="w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-98">
         <Typography className="w-full md:w-[40%]">
           <MdOutlineLocalPhone className="text-lg text-pink" />
           {greenPhone}

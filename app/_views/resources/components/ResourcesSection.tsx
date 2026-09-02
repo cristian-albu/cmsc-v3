@@ -40,7 +40,7 @@ const ResourcesSection: FC<T_ResourcesSection> = ({ resources }) => {
                     : resource.name;
 
                 return (
-                  <li key={resource.slug} className="border-[1px] border-solid border-white rounded-md p-2 ">
+                  <li key={resource.slug} className="border border-solid border-white rounded-md p-2 ">
                     <Tooltip text={resource.name}>
                       <Link href={`${E_PATHS.RESOURCES}/${resource.slug}`} aria-label={resource.name}>
                         {name}
