@@ -30,11 +30,38 @@ export default class Cookies {
       throw new Error("Cookie value cannot contain semicolons.");
     }
     document.cookie = `${this.name}=${encodeURIComponent(value)}; ${this.generateExDays(
-      exDays
+      exDays,
     )} path=/; Secure; SameSite=Lax`;
   }
 
   public deleteCookie() {
     document.cookie = `${this.name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; Secure; SameSite=Lax`;
+  }
+}
+
+export function deleteCookiesByPrefix(prefix: string) {
+  const cookieNames = document.cookie
+    .split("; ")
+    .map((cookie) => cookie.split("=")[0])
+    .filter((name) => name.startsWith(prefix));
+
+  if (cookieNames.length === 0) return;
+
+  const { hostname } = window.location;
+  const hostnameLabels = hostname.split(".");
+  const domainSuffixes = hostnameLabels.map((_, i) =>
+    hostnameLabels.slice(i).join("."),
+  );
+  const domains = [
+    undefined,
+    ...domainSuffixes.flatMap((suffix) => [suffix, `.${suffix}`]),
+  ];
+
+  for (const name of cookieNames) {
+    for (const domain of domains) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;${
+        domain ? ` domain=${domain};` : ""
+      }`;
+    }
   }
 }
