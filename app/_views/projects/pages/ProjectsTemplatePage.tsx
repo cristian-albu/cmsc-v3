@@ -35,9 +35,7 @@ const JUST_HER_PROJECT_SLUG = "justher-justitie-pentru-ea";
 const JustHerSpecialCase: FC = () => {
   return (
     <>
-      <div className="w-full fixed h-[80px] top-[60px] left-0 z-99 flex bg-white p-1 shadow-lg">
-        <Link
-          href="https://anabi.just.ro/"
+      <div className="w-full fixed h-[80px] top-[60px] left-0 z-[99] flex bg-white p-1 shadow-lg">
           rel="noopener noreferrer"
           target="_blank"
           className="w-full h-full flex justify-start"
