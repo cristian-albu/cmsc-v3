@@ -22,7 +22,7 @@ export const ContactBar: FC<{ className?: string }> = ({ className }) => {
 
   return (
     <div
-      className={`w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-98 ${className ? className : ""}`}
+      className={`w-full relative flex flex-wrap bg-white text-black px-3 py-1 shadow-lg z-[98] ${className ? className : ""}`}
     >
       <Typography className="w-full md:w-[40%]">
         <MdOutlineLocalPhone className="text-lg text-pink" />
