@@ -22,11 +22,10 @@ const Settings: FC<{
   const settingsBoxesArr = [essential, preferences, analytics, advertisement];
 
   const [checkedState, setCheckedState] = useState<T_GdprState>(gdprState);
-  const [prevGdprState, setPrevGdprState] = useState(gdprState);
-  if (gdprState !== prevGdprState) {
-    setPrevGdprState(gdprState);
+
+  React.useEffect(() => {
     setCheckedState(gdprState);
-  }
+  }, [gdprState]);
 
   const handleUpdateLocalState = (name: E_GdprNames) => {
     setCheckedState((prev) => ({
