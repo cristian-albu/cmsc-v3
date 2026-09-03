@@ -14,7 +14,7 @@ const TextInput: FC<T_TextInput> = ({ children, labelProps = { className: "" }, 
       {children}
       <input
         type={restInput.type === "email" ? "email" : "text"}
-        className={`w-full outline-none border-solid border-black border-[1px] rounded-md px-3 py-1 transition-all hover:border-purple ${
+        className={`w-full outline-none border-solid border-black border rounded-md px-3 py-1 transition-all hover:border-purple ${
           inputClassName ?? ""
         }`}
         {...restInput}

@@ -6,6 +6,7 @@ import { FaArrowRotateRight } from "react-icons/fa6";
 const Loading: FC<{ children: ReactNode; waitTime?: number }> = ({ children, waitTime }) => {
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
@@ -21,7 +22,7 @@ const Loading: FC<{ children: ReactNode; waitTime?: number }> = ({ children, wai
       <FaArrowRotateRight className="text-2xl animate-spin" />
     </div>
   ) : (
-    <div className={`w-full transition-all duration-200 ease-in-out ${loading ? "opacity-0" : "opacity-1"}`}>{children}</div>
+    <div className={`w-full transition-all duration-200 ease-in-out ${loading ? "opacity-0" : "opacity-100"}`}>{children}</div>
   );
 };
 

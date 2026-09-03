@@ -13,7 +13,7 @@ type T_Section = {
 } & T_SectionProps;
 
 const colorClasses: Record<T_Bg, string> = {
-  color: "bg-gradient-to-tr from-darkPurple to-pink text-[#ffffff]",
+  color: "bg-linear-to-tr from-darkPurple to-pink text-[#ffffff]",
   dark: "bg-[#1e1527] text-[#ffffff]",
   light: "bg-[#ffffff] text-dark",
   gray: "bg-[#f7f7f7] text-dark",
@@ -24,7 +24,7 @@ const waveClasses: Record<T_WaveType, string> = {
   bottomDark:
     "relative bottom-[-2px] inverse bg-[url('/waves/wave_bottom_dark.svg')] bg-repeat-x bg-bottom bg-contain h-[8rem]",
   top: "relative top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
-  tip: "absolute z-[0] top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
+  tip: "absolute z-0 top-[-2px] bg-[url('/waves/wave_top.svg')] bg-repeat-x bg-top bg-contain h-[8rem]",
 };
 
 export const Section: FC<T_Section> = ({ children, wave, bg = "light", ...rest }) => {

@@ -1,6 +1,10 @@
-import { E_GdprNames, T_GdprState, useGdprContext } from "@/lib/contexts/GdprContext";
+import {
+  E_GdprNames,
+  T_GdprState,
+  useGdprContext,
+} from "@/lib/contexts/GdprContext";
 import { useLangContext } from "@/lib/contexts/LangContext";
-import React, { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { createPortal } from "react-dom";
 import { IoMdClose } from "react-icons/io";
 import Button from "../button";
@@ -17,11 +21,26 @@ const Settings: FC<{
   const { langState } = useLangContext();
   const { gdprState, updateGdprState } = useGdprContext();
 
-  const { closeBtn, title, saveBtn, acceptAllBtn, refuseAllBtn, essential, preferences, analytics, advertisement } =
-    settingsData[langState];
+  const {
+    closeBtn,
+    title,
+    saveBtn,
+    acceptAllBtn,
+    refuseAllBtn,
+    essential,
+    preferences,
+    analytics,
+    advertisement,
+  } = settingsData[langState];
   const settingsBoxesArr = [essential, preferences, analytics, advertisement];
 
   const [checkedState, setCheckedState] = useState<T_GdprState>(gdprState);
+
+  const [prevGdprState, setPrevGdprState] = useState(gdprState);
+  if (gdprState !== prevGdprState) {
+    setPrevGdprState(gdprState);
+    setCheckedState(gdprState);
+  }
 
   const handleUpdateLocalState = (name: E_GdprNames) => {
     setCheckedState((prev) => ({
@@ -55,16 +74,12 @@ const Settings: FC<{
     handleCloseModal();
   };
 
-  useEffect(() => {
-    setCheckedState(gdprState);
-  }, [gdprState]);
-
   return (
     <>
       {body &&
         showModal &&
         createPortal(
-          <div className="fixed top-0 left-0 w-full h-[100vh] flex justify-center items-center p-[2rem]">
+          <div className="fixed top-0 left-0 w-full h-screen flex justify-center items-center p-[2rem]">
             <div
               className="absolute top-0 left-0 w-full h-full bg-black opacity-[0.5]"
               role="button"
@@ -76,7 +91,11 @@ const Settings: FC<{
                 <Typography level={2} className="mb-0">
                   {title}
                 </Typography>
-                <Button tertiary className="ml-auto" onClick={handleCloseButton}>
+                <Button
+                  tertiary
+                  className="ml-auto"
+                  onClick={handleCloseButton}
+                >
                   <IoMdClose /> {closeBtn}
                 </Button>
               </div>
@@ -101,7 +120,11 @@ const Settings: FC<{
                   <Button secondary onClick={handleRefuseAll}>
                     <IoMdClose /> {refuseAllBtn}
                   </Button>
-                  <Button secondary className="mr-auto" onClick={handleAcceptAll}>
+                  <Button
+                    secondary
+                    className="mr-auto"
+                    onClick={handleAcceptAll}
+                  >
                     ✅ {acceptAllBtn}
                   </Button>
                   <Button onClick={handleSaveSettings}>💾 {saveBtn}</Button>
@@ -109,7 +132,7 @@ const Settings: FC<{
               </div>
             </div>
           </div>,
-          body
+          body,
         )}
     </>
   );

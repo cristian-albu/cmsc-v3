@@ -6,7 +6,7 @@ import React, { FC } from "react";
 
 const Header: FC = () => {
   return (
-    <div className="w-full flex flex-wrap justify-between items-center p-2 border-b-solid border-[1px] border-gray gap-3">
+    <div className="w-full flex flex-wrap justify-between items-center p-2 border-b-solid border border-gray gap-3">
       <Link href="https://eeagrants.org/" target="blank" className="mr-auto" aria-label="eeagrants organization website">
         <Image
           src={"/etb/iln_logo.png"}

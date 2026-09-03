@@ -61,6 +61,9 @@ const useGdpr = () => {
     const currentCookieData = gdprCookie.getCookie();
 
     if (!currentCookieData) {
+      // Cookie is only readable client-side after mount; reading it during
+      // render would cause an SSR/hydration mismatch.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       handleShowBanner();
     } else {
       const cookieData = getValidCookieData(currentCookieData);
